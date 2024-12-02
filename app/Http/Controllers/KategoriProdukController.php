@@ -36,9 +36,13 @@ class KategoriProdukController extends Controller
     // Menampilkan form untuk mengedit kategori produk
     public function edit($id)
     {
-        $kategoriProduk = KategoriProduk::findOrFail($id); // Mencari kategori berdasarkan ID
+        // Mengambil data kategori berdasarkan ID
+        $kategoriProduk = KategoriProduk::findOrFail($id);
+    
+        // Mengirimkan data kategori ke view edit
         return view('kategori.edit', compact('kategoriProduk'));
     }
+    
 
     // Mengupdate data kategori produk
     public function update(Request $request, $id)
@@ -46,12 +50,16 @@ class KategoriProdukController extends Controller
         $request->validate([
             'nama_kategori' => 'required|string|max:255',
         ]);
-
+    
+        // Mencari kategori berdasarkan ID
         $kategoriProduk = KategoriProduk::findOrFail($id);
-        $kategoriProduk->update($request->all()); // Mengupdate data kategori produk
-
+    
+        // Mengupdate data kategori
+        $kategoriProduk->update($request->all());
+    
         return redirect()->route('kategori.index')->with('success', 'Kategori produk berhasil diperbarui');
     }
+    
 
     // Menghapus kategori produk
     public function destroy($id)
