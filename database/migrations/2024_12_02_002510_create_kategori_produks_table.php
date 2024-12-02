@@ -5,25 +5,19 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\KategoriProduk;
 
-return new class extends Migration
+class CreateKategoriProduksTable extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up()
     {
         Schema::create('kategori_produks', function (Blueprint $table) {
-            $table->id('id_kategori');
-            $table->string('nama_kategori');
-            $table->timestamps();
+            $table->string('id_kategori')->primary(); // Membuat id_kategori sebagai primary key
+            $table->string('nama_kategori'); // Kolom nama_kategori
+            $table->timestamps(); // Kolom untuk created_at dan updated_at
         });
-    }    
+    }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('kategori_produks');
     }
-};
+}

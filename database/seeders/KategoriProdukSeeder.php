@@ -2,23 +2,23 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\KategoriProduk;
+use Illuminate\Database\Seeder;
 
 class KategoriProdukSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run()
     {
-        $this->call([
-            SuplierSeeder::class,
-            KategoriProdukSeeder::class,
-            ProdukSeeder::class,
-            PegawaiSeeder::class,
-        ]);
-        //
+        // Menambahkan data kategori produk hanya jika belum ada
+        KategoriProduk::firstOrCreate(
+            ['id_kategori' => 'K001'], // Cek id_kategori
+            ['nama_kategori' => 'Aksesoris'] // Data yang akan dimasukkan jika id_kategori tidak ada
+        );
+
+        KategoriProduk::firstOrCreate(
+            ['id_kategori' => 'K002'],
+            ['nama_kategori' => 'Fashion']
+        );
     }
 }
+

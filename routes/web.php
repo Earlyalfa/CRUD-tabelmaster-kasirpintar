@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SuplierController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\KategoriProdukController;
 
 // Halaman Utama
 Route::get('/', function () {
@@ -28,10 +28,9 @@ Route::get('/products/{id}', [ProductController::class, 'show']);
 Route::get('/kategori', [KategoriProdukController::class, 'index'])->name('kategori.index');
 Route::get('/kategori/create', [KategoriProdukController::class, 'create'])->name('kategori.create');
 Route::post('/kategori', [KategoriProdukController::class, 'store'])->name('kategori.store');
-Route::get('/kategori/{kategori}/edit', [KategoriProdukController::class, 'edit'])->name('kategori.edit');
-Route::put('/kategori/{kategori}', [KategoriProdukController::class, 'update'])->name('kategori.update');
-Route::delete('/kategori/{kategori}', [KategoriProdukController::class, 'destroy'])->name('kategori.destroy');
-Route::get('/kategori/{kategori}', [KategoriProdukController::class, 'show'])->name('kategori.show');
+Route::get('/kategori/{id}/edit', [KategoriProdukController::class, 'edit'])->name('kategori.edit');
+Route::put('/kategori/{id}', [KategoriProdukController::class, 'update'])->name('kategori.update');
+Route::delete('/kategori/{id}', [KategoriProdukController::class, 'destroy'])->name('kategori.destroy');
 
 // Routes untuk Pegawai
 Route::get('/pegawai', [PegawaiController::class, 'index'])->name('pegawai.index');
