@@ -28,7 +28,7 @@ class ProductSeeder extends Seeder
             ['kode_produk' => 'A010', 'nama_produk' => 'Sandal', 'harga' => 50000, 'image' => 'sandal.jpg'],
         ];
 
-        // Menambahkan produk ke dalam database
+        // Menambahkan produk ke database
         foreach ($products as $product) {
             Product::create($product);
         }

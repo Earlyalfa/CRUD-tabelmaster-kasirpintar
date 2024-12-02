@@ -11,8 +11,8 @@ class KategoriProdukSeeder extends Seeder
     {
         // Menambahkan data kategori produk hanya jika belum ada
         KategoriProduk::firstOrCreate(
-            ['id_kategori' => 'K001'], // Cek id_kategori
-            ['nama_kategori' => 'Aksesoris'] // Data yang akan dimasukkan jika id_kategori tidak ada
+            ['id_kategori' => 'K001'], 
+            ['nama_kategori' => 'Aksesoris'] 
         );
 
         KategoriProduk::firstOrCreate(

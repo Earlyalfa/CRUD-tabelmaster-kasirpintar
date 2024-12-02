@@ -10,17 +10,17 @@ class KategoriProdukController extends Controller
     // Menampilkan daftar kategori produk
     public function index()
     {
-        $kategoriProduks = KategoriProduk::all(); // Mendapatkan semua data kategori produk
+        $kategoriProduks = KategoriProduk::all(); 
         return view('kategori.index', compact('kategoriProduks'));
     }
 
-    // Menampilkan form untuk membuat kategori baru
+
     public function create()
     {
         return view('kategori.create');
     }
 
-    // Menyimpan kategori produk baru
+
     public function store(Request $request)
     {
         $request->validate([
@@ -33,7 +33,7 @@ class KategoriProdukController extends Controller
         return redirect()->route('kategori.index')->with('success', 'Kategori produk berhasil ditambahkan');
     }
 
-    // Menampilkan form untuk mengedit kategori produk
+   
     public function edit($id)
     {
         // Mengambil data kategori berdasarkan ID
@@ -44,28 +44,26 @@ class KategoriProdukController extends Controller
     }
     
 
-    // Mengupdate data kategori produk
     public function update(Request $request, $id)
     {
         $request->validate([
             'nama_kategori' => 'required|string|max:255',
         ]);
     
-        // Mencari kategori berdasarkan ID
+        // Mencari ID
         $kategoriProduk = KategoriProduk::findOrFail($id);
     
-        // Mengupdate data kategori
         $kategoriProduk->update($request->all());
     
         return redirect()->route('kategori.index')->with('success', 'Kategori produk berhasil diperbarui');
     }
     
 
-    // Menghapus kategori produk
+    // Menghapus 
     public function destroy($id)
     {
         $kategoriProduk = KategoriProduk::findOrFail($id);
-        $kategoriProduk->delete(); // Menghapus data kategori produk
+        $kategoriProduk->delete(); 
 
         return redirect()->route('kategori.index')->with('success', 'Kategori produk berhasil dihapus');
     }

@@ -2,22 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     /**
      * Menampilkan semua produk.
      *
-     * @return \Illuminate\View\View
+     * 
      */
     public function index()
     {
-        // Ambil semua produk dari database
-        $products = Product::all();
+        $products = Product::all(); 
+        return view('products.index', compact('products')); 
+    }
 
-        // Kirim data produk ke view 'products.index'
-        return view('products.index', compact('products'));
+    // Menampilkan ID
+    public function show($id)
+    {
+        $product = Product::findOrFail($id); 
+        return view('products.show', compact('product')); 
     }
 }
