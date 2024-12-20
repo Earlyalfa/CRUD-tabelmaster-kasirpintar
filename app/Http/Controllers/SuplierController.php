@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\SuplierResource;
 use App\Models\Suplier;
 use Illuminate\Http\Request;
 
@@ -9,8 +10,9 @@ class SuplierController extends Controller
 {
     public function index()
     {
-        $supliers = Suplier::all();
-        return view('suplier.index', compact('supliers'));
+        return SuplierResource::collection(Suplier::get());
+        // $supliers = Suplier::all();
+        // return view('suplier.index', compact('supliers'));
     }
 
     public function create()
@@ -60,4 +62,3 @@ class SuplierController extends Controller
         return redirect()->route('suplier.index')->with('success', 'Suplier berhasil dihapus.');
     }
 }
-
