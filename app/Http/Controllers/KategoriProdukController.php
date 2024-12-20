@@ -10,8 +10,9 @@ class KategoriProdukController extends Controller
     // Menampilkan daftar kategori produk
     public function index()
     {
-        $kategoriProduks = KategoriProduk::all(); 
-        return view('kategori.index', compact('kategoriProduks'));
+        return KategoriProdukResource::collection(KategoriProduk::get());
+        // $kategoriProduks = KategoriProduk::all(); 
+        // return view('kategori.index', compact('kategoriProduks'));
     }
 
 
