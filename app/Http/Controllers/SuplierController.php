@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\SuplierResource;
-use App\Models\Suplier;
 use Illuminate\Http\Request;
+use App\Models\Suplier;
 
 class SuplierController extends Controller
 {
     public function index()
     {
-        return SuplierResource::collection(Suplier::get());
-        // $supliers = Suplier::all();
-        // return view('suplier.index', compact('supliers'));
+        $supliers = Suplier::all();
+        return view('suplier.index', compact('supliers'));
     }
 
     public function create()
@@ -38,10 +36,15 @@ class SuplierController extends Controller
         return view('suplier.show', compact('suplier'));
     }
 
-    public function edit(Suplier $suplier)
-    {
-        return view('suplier.edit', compact('suplier'));
-    }
+    public function edit($id_suplier)
+{
+    // Ambil data suplier berdasarkan id_suplier
+    $suplier = Suplier::findOrFail($id_suplier);
+
+    // Kirim variabel suplier ke view
+    return view('suplier.edit', compact('suplier'));  // Mengirim objek $suplier ke view
+}
+
 
     public function update(Request $request, Suplier $suplier)
     {

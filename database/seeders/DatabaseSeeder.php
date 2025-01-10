@@ -16,9 +16,10 @@ class DatabaseSeeder extends Seeder
         // Panggil seeder yang telah dibuat
         $this->call([
             SuplierSeeder::class,
-            KategoriProdukSeeder::class,
-            ProductSeeder::class,
+            KategoriSeeder::class,
+            // ProdukSeeder::class,
             PegawaiSeeder::class,
+            DiskonSeeder::class,
         ]);
     }
 }

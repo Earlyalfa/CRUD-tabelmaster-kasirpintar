@@ -5,15 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Diskon extends Model
 {
     use HasFactory;
 
-    // Tentukan kolom yang dapat diisi (fillable)
+    protected $table = 'diskon'; 
     protected $fillable = [
-        'kode_produk', 
-        'nama_produk', 
-        'harga', 
-        'image'
+        'name', 'value', 'min_purchase', 'start_date', 'end_date', 'status',
     ];
 }
+

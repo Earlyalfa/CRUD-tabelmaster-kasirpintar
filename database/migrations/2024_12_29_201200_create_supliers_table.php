@@ -10,7 +10,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('supliers', function (Blueprint $table) {
             $table->id('id_suplier');
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-    
+
     /**
      * Reverse the migrations.
      */
@@ -29,4 +29,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('supliers');
     }
-};
+}; 

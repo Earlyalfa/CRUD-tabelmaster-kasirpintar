@@ -11,7 +11,7 @@ class SuplierSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run()
+    public function run(): void
     {
         Suplier::create([
             'nama' => 'PT. Sukses Selalu',
@@ -26,6 +26,5 @@ class SuplierSeeder extends Seeder
             'email' => 'toko.fashion@email.com',
             'no_hp' => '81234567890',
         ]);
-        //
     }
 }

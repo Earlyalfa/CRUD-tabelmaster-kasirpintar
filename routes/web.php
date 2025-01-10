@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SuplierController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PegawaiController;
-use App\Http\Controllers\KategoriProdukController;
+use App\Http\Controllers\DiskonController;
 
 // Halaman Utama
 Route::get('/', function () {
@@ -19,18 +20,20 @@ Route::get('/suplier/{suplier}/edit', [SuplierController::class, 'edit'])->name(
 Route::put('/suplier/{suplier}', [SuplierController::class, 'update'])->name('suplier.update');
 Route::delete('/suplier/{suplier}', [SuplierController::class, 'destroy'])->name('suplier.destroy');
 Route::get('/suplier/{suplier}', [SuplierController::class, 'show'])->name('suplier.show');
+Route::get('/suplier/{id_suplier}/edit', [SuplierController::class, 'edit'])->name('suplier.edit');
+Route::put('/suplier/{id_suplier}', [SuplierController::class, 'update'])->name('suplier.update');
 
 // Routes untuk Produk
-Route::get('/products', [ProductController::class, 'index']);
-Route::get('/products/{id}', [ProductController::class, 'show']);
 
-// Routes untuk Kategori Produk
-Route::get('/kategori', [KategoriProdukController::class, 'index'])->name('kategori.index');
-Route::get('/kategori/create', [KategoriProdukController::class, 'create'])->name('kategori.create');
-Route::post('/kategori', [KategoriProdukController::class, 'store'])->name('kategori.store');
-Route::get('/kategori/{id}/edit', [KategoriProdukController::class, 'edit'])->name('kategori.edit');
-Route::put('/kategori/{id}', [KategoriProdukController::class, 'update'])->name('kategori.update');
-Route::delete('/kategori/{id}', [KategoriProdukController::class, 'destroy'])->name('kategori.destroy');
+
+// Routes untuk Kategori
+Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori.index');
+Route::get('/kategori/create', [KategoriController::class, 'create'])->name('kategori.create');
+Route::post('/kategori', [KategoriController::class, 'store'])->name('kategori.store');
+Route::get('/kategori/{id_kategori}/edit', [KategoriController::class, 'edit'])->name('kategori.edit');
+Route::put('/kategori/{id_kategori}', [KategoriController::class, 'update'])->name('kategori.update');
+Route::delete('/kategori/{id_kategori}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
+
 
 // Routes untuk Pegawai
 Route::get('/pegawai', [PegawaiController::class, 'index'])->name('pegawai.index');
@@ -40,3 +43,14 @@ Route::get('/pegawai/{pegawai}/edit', [PegawaiController::class, 'edit'])->name(
 Route::put('/pegawai/{pegawai}', [PegawaiController::class, 'update'])->name('pegawai.update');
 Route::delete('/pegawai/{pegawai}', [PegawaiController::class, 'destroy'])->name('pegawai.destroy');
 Route::get('/pegawai/{pegawai}', [PegawaiController::class, 'show'])->name('pegawai.show');
+
+// Rotes untuk Diskon
+Route::get('diskon', [DiskonController::class, 'index'])->name('diskon.index'); // Menampilkan semua diskon
+Route::get('diskon/create', [DiskonController::class, 'create'])->name('diskon.create'); // Menampilkan form tambah diskon
+Route::post('diskon', [DiskonController::class, 'store'])->name('diskon.store'); // Menyimpan data diskon
+Route::get('diskon/{id}/edit', [DiskonController::class, 'edit'])->name('diskon.edit'); // Menampilkan form edit
+Route::put('diskon/{id}', [DiskonController::class, 'update'])->name('diskon.update'); // Mengupdate data
+Route::delete('diskon/{id}', [DiskonController::class, 'destroy'])->name('diskon.destroy'); // Menghapus data
+
+
+

@@ -1,61 +1,64 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Pegawai;
 use Illuminate\Http\Request;
 
 class PegawaiController extends Controller
 {
+    // Menampilkan semua pegawai
     public function index()
     {
         $pegawais = Pegawai::all();
         return view('pegawai.index', compact('pegawais'));
     }
 
+    // Menampilkan form tambah pegawai
     public function create()
     {
         return view('pegawai.create');
     }
 
+    // Menyimpan data pegawai baru
     public function store(Request $request)
     {
         $request->validate([
-            'nama_pegawai' => 'required|string|max:255',
+            'nama_pegawai' => 'required|string',
             'sift_awal' => 'required|date_format:H:i',
             'sift_akhir' => 'required|date_format:H:i',
         ]);
 
         Pegawai::create($request->all());
-        return redirect()->route('pegawai.index')->with('success', 'Pegawai berhasil ditambahkan.');
+        return redirect()->route('pegawai.index');
     }
 
-    public function show(Pegawai $pegawai)
+    // Menampilkan form edit pegawai
+    public function edit($id)
     {
-        return view('pegawai.show', compact('pegawai'));
+        $pegawai = Pegawai::findOrFail($id); 
+        return view('pegawai.edit', compact('pegawai')); 
     }
+    
 
-    public function edit(Pegawai $pegawai)
-    {
-        return view('pegawai.edit', compact('pegawai'));
-    }
-
-    public function update(Request $request, Pegawai $pegawai)
+    // Mengupdate data pegawai
+    public function update(Request $request, $id_pegawai)
     {
         $request->validate([
-            'nama_pegawai' => 'required|string|max:255',
+            'nama_pegawai' => 'required|string',
+            'jabatan' => 'required|string',
             'sift_awal' => 'required|date_format:H:i',
             'sift_akhir' => 'required|date_format:H:i',
         ]);
 
+        $pegawai = Pegawai::findOrFail($id_pegawai);
         $pegawai->update($request->all());
-        return redirect()->route('pegawai.index')->with('success', 'Pegawai berhasil diperbarui.');
+        return redirect()->route('pegawai.index');
     }
 
-    public function destroy(Pegawai $pegawai)
+    // Menghapus pegawai
+    public function destroy($id_pegawai)
     {
-        $pegawai->delete();
-        return redirect()->route('pegawai.index')->with('success', 'Pegawai berhasil dihapus.');
+        Pegawai::destroy($id_pegawai);
+        return redirect()->route('pegawai.index');
     }
 }
-
