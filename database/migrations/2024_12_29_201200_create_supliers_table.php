@@ -10,14 +10,14 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('supliers', function (Blueprint $table) {
-            $table->id('id_suplier');
+            $table->id();
             $table->string('nama');
-            $table->text('alamat');
-            $table->string('email')->nullable();
-            $table->string('no_hp', 15);
+            $table->string('alamat');
+            $table->string('email');
+            $table->string('no_hp');
             $table->timestamps();
         });
     }

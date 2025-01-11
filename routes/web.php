@@ -13,15 +13,13 @@ Route::get('/', function () {
 });
 
 // Routes untuk Suplier
-Route::get('/suplier', [SuplierController::class, 'index'])->name('suplier.index');
-Route::get('/suplier/create', [SuplierController::class, 'create'])->name('suplier.create');
-Route::post('/suplier', [SuplierController::class, 'store'])->name('suplier.store');
-Route::get('/suplier/{suplier}/edit', [SuplierController::class, 'edit'])->name('suplier.edit');
-Route::put('/suplier/{suplier}', [SuplierController::class, 'update'])->name('suplier.update');
-Route::delete('/suplier/{suplier}', [SuplierController::class, 'destroy'])->name('suplier.destroy');
-Route::get('/suplier/{suplier}', [SuplierController::class, 'show'])->name('suplier.show');
-Route::get('/suplier/{id_suplier}/edit', [SuplierController::class, 'edit'])->name('suplier.edit');
-Route::put('/suplier/{id_suplier}', [SuplierController::class, 'update'])->name('suplier.update');
+Route::get('/suplier', [SuplierController::class, 'index'])->name('suplier.index'); // GET: Menampilkan daftar suplier
+Route::get('/suplier/create', [SuplierController::class, 'create'])->name('suplier.create'); // GET: Menampilkan form tambah suplier
+Route::post('/suplier', [SuplierController::class, 'store'])->name('suplier.store'); // POST: Menyimpan suplier baru
+Route::get('/suplier/{suplier}/edit', [SuplierController::class, 'edit'])->name('suplier.edit'); // GET: Menampilkan form edit suplier
+Route::put('/suplier/{suplier}', [SuplierController::class, 'update'])->name('suplier.update'); // PUT: Mengupdate suplier
+Route::delete('/suplier/{id}', [SuplierController::class, 'destroy'])->name('suplier.destroy'); // DELETE: Menghapus suplier
+
 
 // Routes untuk Produk
 
@@ -30,9 +28,9 @@ Route::put('/suplier/{id_suplier}', [SuplierController::class, 'update'])->name(
 Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori.index');
 Route::get('/kategori/create', [KategoriController::class, 'create'])->name('kategori.create');
 Route::post('/kategori', [KategoriController::class, 'store'])->name('kategori.store');
-Route::get('/kategori/{id_kategori}/edit', [KategoriController::class, 'edit'])->name('kategori.edit');
-Route::put('/kategori/{id_kategori}', [KategoriController::class, 'update'])->name('kategori.update');
-Route::delete('/kategori/{id_kategori}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
+Route::get('/kategori/{id}/edit', [KategoriController::class, 'edit'])->name('kategori.edit');
+Route::put('/kategori/{id}', [KategoriController::class, 'update'])->name('kategori.update');
+Route::delete('/kategori/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
 
 
 // Routes untuk Pegawai
