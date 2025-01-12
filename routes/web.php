@@ -22,7 +22,12 @@ Route::delete('/suplier/{id}', [SuplierController::class, 'destroy'])->name('sup
 
 
 // Routes untuk Produk
-
+Route::get('produk', [ProdukController::class, 'index'])->name('produk.index');  // Menampilkan daftar produk
+Route::get('produk/create', [ProdukController::class, 'create'])->name('produk.create');  // Menampilkan form tambah produk
+Route::post('produk', [ProdukController::class, 'store'])->name('produk.store');  // Menyimpan produk baru
+Route::get('produk/{id}/edit', [ProdukController::class, 'edit'])->name('produk.edit');  // Menampilkan form edit produk
+Route::put('produk/{id}', [ProdukController::class, 'update'])->name('produk.update');  // Memperbarui produk
+Route::delete('produk/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');  // Menghapus produk
 
 // Routes untuk Kategori
 Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori.index');
@@ -37,10 +42,11 @@ Route::delete('/kategori/{id}', [KategoriController::class, 'destroy'])->name('k
 Route::get('/pegawai', [PegawaiController::class, 'index'])->name('pegawai.index');
 Route::get('/pegawai/create', [PegawaiController::class, 'create'])->name('pegawai.create');
 Route::post('/pegawai', [PegawaiController::class, 'store'])->name('pegawai.store');
-Route::get('/pegawai/{pegawai}/edit', [PegawaiController::class, 'edit'])->name('pegawai.edit');
-Route::put('/pegawai/{pegawai}', [PegawaiController::class, 'update'])->name('pegawai.update');
-Route::delete('/pegawai/{pegawai}', [PegawaiController::class, 'destroy'])->name('pegawai.destroy');
-Route::get('/pegawai/{pegawai}', [PegawaiController::class, 'show'])->name('pegawai.show');
+Route::get('/pegawai/{id}/edit', [PegawaiController::class, 'edit'])->name('pegawai.edit');
+Route::put('/pegawai/{id}', [PegawaiController::class, 'update'])->name('pegawai.update');
+Route::delete('/pegawai/{id}', [PegawaiController::class, 'destroy'])->name('pegawai.destroy');
+
+
 
 // Rotes untuk Diskon
 Route::get('diskon', [DiskonController::class, 'index'])->name('diskon.index'); // Menampilkan semua diskon

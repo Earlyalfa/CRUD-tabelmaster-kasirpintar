@@ -2,28 +2,41 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Pegawai;
+use Illuminate\Support\Facades\DB;
 
 class PegawaiSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Menjalankan seeder untuk menambahkan data pegawai.
+     *
+     * @return void
      */
     public function run()
     {
-        Pegawai::create([
-            'nama_pegawai' => 'Early',
-            'sift_awal' => '08:00:00',
-            'sift_akhir' => '17:00:00',
+        DB::table('pegawais')->insert([
+            [
+                'nama_pegawai' => 'Early',
+                'sift_awal' => '08:00:00',
+                'sift_akhir' => '16:00:00',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nama_pegawai' => 'Ella',
+                'sift_awal' => '09:00:00',
+                'sift_akhir' => '17:00:00',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nama_pegawai' => 'Lipiya',
+                'sift_awal' => '07:00:00',
+                'sift_akhir' => '15:00:00',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
-
-        Pegawai::create([
-            'nama_pegawai' => 'Ella',
-            'sift_awal' => '09:00:00',
-            'sift_akhir' => '18:00:00',
-        ]);
-        //
     }
 }
+

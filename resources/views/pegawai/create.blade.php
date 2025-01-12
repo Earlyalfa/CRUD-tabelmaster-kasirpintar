@@ -3,65 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tambah Pegawai</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body style="background: lightgray;">
-    <div class="container mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card border-0 shadow-sm rounded">
-                    <div class="card-body">
-                        <!-- Form Tambah Pegawai -->
-                        <form action="{{ route('pegawai.store') }}" method="POST">
-                        @csrf
-                            <div class="form-group">
-                                <label class="font-weight-bold">Nama Pegawai</label>
-                                <input type="text" 
-                                       class="form-control @error('nama_pegawai') is-invalid @enderror" 
-                                       name="nama_pegawai" 
-                                       value="{{ old('nama_pegawai') }}" 
-                                       placeholder="Nama Pegawai">
-                                @error('nama_pegawai')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label class="font-weight-bold">Sift Awal</label>
-                                <input type="time" 
-                                       class="form-control @error('sift_awal') is-invalid @enderror" 
-                                       name="sift_awal" 
-                                       value="{{ old('sift_awal') }}">
-                                @error('sift_awal')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label class="font-weight-bold">Sift Akhir</label>
-                                <input type="time" 
-                                       class="form-control @error('sift_akhir') is-invalid @enderror" 
-                                       name="sift_akhir" 
-                                       value="{{ old('sift_akhir') }}">
-                                @error('sift_akhir')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                            <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>
-                            <button type="reset" class="btn btn-md btn-warning">RESET</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Tambah Pegawai</h1>
+    <form action="{{ route('pegawai.store') }}" method="POST">
+        @csrf
+        <div class="mb-3">
+            <label for="nama_pegawai" class="form-label">Nama Pegawai</label>
+            <input type="text" class="form-control" id="nama_pegawai" name="nama_pegawai" value="{{ old('nama_pegawai') }}" required>
+            @error('nama_pegawai')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
         </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <div class="mb-3">
+            <label for="sift_awal" class="form-label">Sift Awal</label>
+            <input type="text" class="form-control" id="sift_awal" name="sift_awal" placeholder="Contoh: 02:00 PM" value="{{ old('sift_awal') }}" required>
+            @error('sift_awal')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="mb-3">
+            <label for="sift_akhir" class="form-label">Sift Akhir</label>
+            <input type="text" class="form-control" id="sift_akhir" name="sift_akhir" placeholder="Contoh: 03:00 PM" value="{{ old('sift_akhir') }}" required>
+            @error('sift_akhir')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+        <a href="{{ route('pegawai.index') }}" class="btn btn-secondary">Kembali</a>
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
