@@ -17,7 +17,7 @@
         <table class="table table-bordered">
             <thead class="table-success">
                 <tr>
-                    <th>Id</th>
+                    <th>ID</th>
                     <th>Nama Suplier</th>
                     <th>Alamat</th>
                     <th>Email</th>

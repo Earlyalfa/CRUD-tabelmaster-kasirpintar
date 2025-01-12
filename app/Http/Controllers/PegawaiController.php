@@ -25,10 +25,13 @@ class PegawaiController extends Controller
     {
         $request->validate([
             'nama_pegawai' => 'required|string|max:255',
-            'sift_awal' => 'required|date_format:H:i:s',
-            'sift_akhir' => 'required|date_format:H:i:s',
+            'sift_awal' => 'required|date_format:H:i',  // Validasi format waktu H:i:s
+            'sift_akhir' => 'required|date_format:H:i', // Validasi format waktu H:i:s
         ]);
-        Pegawai::create($request->all());  // Menyimpan pegawai baru ke database
+
+        Pegawai::create ([
+            'pegawai' => $request->pegawai,
+        ]);  // Menyimpan pegawai baru ke database
         return redirect()->route('pegawai.index')->with('success', 'Pegawai berhasil ditambahkan.');
     }
 
@@ -44,12 +47,14 @@ class PegawaiController extends Controller
     {
         $request->validate([
             'nama_pegawai' => 'required|string|max:255',
-            'sift_awal' => 'required|date_format:H:i:s',
-            'sift_akhir' => 'required|date_format:H:i:s',
+            'sift_awal' => 'required|date_format:H:i:s',  // Validasi format waktu H:i:s
+            'sift_akhir' => 'required|date_format:H:i:s', // Validasi format waktu H:i:s
         ]);
-        
-        $pegawai = Pegawai::findOrFail($id);  // Mencari pegawai berdasarkan ID
-        $pegawai->update($request->all());  // Memperbarui data pegawai di database
+
+        $pegawai = Pegawai::findOrFail($id);
+        $pegawai->update([
+            'pegawai' => $request->pegawaii,
+        ]);
         return redirect()->route('pegawai.index')->with('success', 'Pegawai berhasil diperbarui.');
     }
 

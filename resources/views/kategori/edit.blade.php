@@ -17,9 +17,9 @@
                 <label for="kategori" class="form-label">Nama Kategori</label>
                 <input type="text" name="kategori" id="kategori" class="form-control" value="{{ $kategori->kategori }}" required>
             </div>
-
-            <button type="submit" class="btn btn-success">Update</button>
-            <a href="{{ route('kategori.index') }}" class="btn btn-secondary">Kembali</a>
+            
+            <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-success">Simpan</button>
         </form>
     </div>
 </body>

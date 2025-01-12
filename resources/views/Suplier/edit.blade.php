@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="mb-4">Edit Suplier</h1>
+        <h1 class="text-center mb-4">Edit Suplier</h1>
 
         <form action="{{ route('suplier.update', $suplier->id) }}" method="POST">
             @csrf
@@ -29,7 +29,8 @@
                 <label for="no_hp" class="form-label">No HP</label>
                 <input type="text" class="form-control" id="no_hp" name="no_hp" value="{{ $suplier->no_hp }}" required>
             </div>
-            <button type="submit" class="btn btn-primary">Perbarui</button>
+            <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-success">Simpan</button>
         </form>
     </div>
 

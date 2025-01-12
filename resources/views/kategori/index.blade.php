@@ -17,7 +17,7 @@
         <table class="table table-bordered">
             <thead class="table-success">
                 <tr>
-                    <th>Id</th>
+                    <th>ID</th>
                     <th>Nama Kategori</th>
                     <th>Aksi</th>
                 </tr>
@@ -39,6 +39,7 @@
                 @endforeach
             </tbody>
         </table>
+        
         <!-- Modal Notifikasi Sukses -->
         <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">

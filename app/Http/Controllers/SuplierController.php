@@ -46,7 +46,6 @@ class SuplierController extends Controller
     // Mengupdate data suplier (PUT)
     public function update(Request $request, Suplier $suplier)
     {
-        // Validasi input data
         $request->validate([
             'nama' => 'required',
             'alamat' => 'required',

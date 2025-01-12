@@ -8,8 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container my-4">
-        <h1>Edit Diskon</h1>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Edit Diskon</h1>
         <form action="{{ route('diskon.update', $diskon->id) }}" method="POST">
             @csrf
             @method('PUT')
@@ -40,6 +40,8 @@
                     <option value="0" {{ !$diskon->status ? 'selected' : '' }}>Non-aktif</option>
                 </select>
             </div>
+
+            <div class="d-flex justify-content-end">
             <button type="submit" class="btn btn-success">Simpan</button>
         </form>
     </div>

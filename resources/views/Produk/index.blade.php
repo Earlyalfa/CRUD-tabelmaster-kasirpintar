@@ -11,13 +11,13 @@
         <h1 class="mb-4">Daftar Produk</h1>
 
         <div class="mb-3">
-            <a href="{{ route('produk.create') }}" class="btn btn-success">+ Tambah Produk</a>
+            <a href="{{ route('produk.create') }}" class="btn btn-success"> Tambah Produk</a>
         </div>
 
         <table class="table table-bordered">
             <thead class="table-success">
                 <tr>
-                    <th>No</th>
+                    <th>ID</th>
                     <th>Nama Produk</th>
                     <th>Kode Produk</th>
                     <th>Kategori</th>

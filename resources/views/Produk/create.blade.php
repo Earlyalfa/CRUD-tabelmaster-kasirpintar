@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container my-5">
-        <h1>Tambah Produk</h1>
+        <h1 class="text-center mb-4">Tambah Produk</h1>
 
         <form action="{{ route('produk.store') }}" method="POST">
             @csrf
@@ -52,8 +52,9 @@
                 <input type="text" name="unit" id="unit" class="form-control" required>
             </div>
 
-            <button type="submit" class="btn btn-success">Simpan</button>
+            <div class="d-flex justify-content-end">
             <a href="{{ route('produk.index') }}" class="btn btn-secondary">Batal</a>
+            <button type="submit" class="btn btn-success ms-2">Tambah</button>
         </form>
     </div>
 </body>

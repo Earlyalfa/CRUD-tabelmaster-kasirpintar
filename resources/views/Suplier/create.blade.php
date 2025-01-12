@@ -7,8 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="mb-4">Tambah Suplier</h1>
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Tambah Suplier</h1>
 
         <form action="{{ route('suplier.store') }}" method="POST">
             @csrf
@@ -28,7 +28,10 @@
                 <label for="no_hp" class="form-label">No HP</label>
                 <input type="text" class="form-control" id="no_hp" name="no_hp" required>
             </div>
-            <button type="submit" class="btn btn-primary">Simpan</button>
+
+            <div class="d-flex justify-content-end">
+            <a href="{{ route('produk.index') }}" class="btn btn-secondary">Batal</a>
+            <button type="submit" class="btn btn-success ms-2">Tambah</button>
         </form>
     </div>
 

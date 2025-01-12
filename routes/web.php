@@ -39,12 +39,12 @@ Route::delete('/kategori/{id}', [KategoriController::class, 'destroy'])->name('k
 
 
 // Routes untuk Pegawai
-Route::get('/pegawai', [PegawaiController::class, 'index'])->name('pegawai.index');
-Route::get('/pegawai/create', [PegawaiController::class, 'create'])->name('pegawai.create');
-Route::post('/pegawai', [PegawaiController::class, 'store'])->name('pegawai.store');
-Route::get('/pegawai/{id}/edit', [PegawaiController::class, 'edit'])->name('pegawai.edit');
-Route::put('/pegawai/{id}', [PegawaiController::class, 'update'])->name('pegawai.update');
-Route::delete('/pegawai/{id}', [PegawaiController::class, 'destroy'])->name('pegawai.destroy');
+Route::get('/pegawai', [PegawaiController::class, 'index'])->name('pegawai.index');  // Menampilkan daftar pegawai
+Route::get('/pegawai/create', [PegawaiController::class, 'create'])->name('pegawai.create');  // Form tambah pegawai
+Route::post('/pegawai', [PegawaiController::class, 'store'])->name('pegawai.store');  // Menyimpan pegawai baru
+Route::get('/pegawai/{id}/edit', [PegawaiController::class, 'edit'])->name('pegawai.edit');  // Form edit pegawai
+Route::put('/pegawai/{id}', [PegawaiController::class, 'update'])->name('pegawai.update');  // Memperbarui pegawai
+Route::delete('/pegawai/{id}', [PegawaiController::class, 'destroy'])->name('pegawai.destroy');  // Menghapus pegawai
 
 
 
