@@ -14,13 +14,15 @@
             {{ session('success') }}
         </div>
     @endif
+    
     <div class="d-flex justify-content-between mb-3">
-        <a href="{{ route('pegawai.create') }}" class="btn btn-primary">Tambah Pegawai</a>
+        <a href="{{ route('pegawai.create') }}" class="btn btn-success">Tambah Pegawai</a>
     </div>
-    <table class="table table-striped">
-        <thead>
+
+    <table class="table table-bordered">
+        <thead class="table-success">
         <tr>
-            <th>#</th>
+            <th>Id</th>
             <th>Nama Pegawai</th>
             <th>Sift Awal</th>
             <th>Sift Akhir</th>
