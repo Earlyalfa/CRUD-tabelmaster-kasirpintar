@@ -9,8 +9,12 @@ use App\Http\Controllers\DiskonController;
 
 // Halaman Utama
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 
 // Routes untuk Suplier
 Route::get('/suplier', [SuplierController::class, 'index'])->name('suplier.index'); // GET: Menampilkan daftar suplier
@@ -19,7 +23,6 @@ Route::post('/suplier', [SuplierController::class, 'store'])->name('suplier.stor
 Route::get('/suplier/{suplier}/edit', [SuplierController::class, 'edit'])->name('suplier.edit'); // GET: Menampilkan form edit suplier
 Route::put('/suplier/{suplier}', [SuplierController::class, 'update'])->name('suplier.update'); // PUT: Mengupdate suplier
 Route::delete('/suplier/{id}', [SuplierController::class, 'destroy'])->name('suplier.destroy'); // DELETE: Menghapus suplier
-
 
 // Routes untuk Produk
 Route::get('produk', [ProdukController::class, 'index'])->name('produk.index');  // Menampilkan daftar produk
@@ -37,7 +40,6 @@ Route::get('/kategori/{id}/edit', [KategoriController::class, 'edit'])->name('ka
 Route::put('/kategori/{id}', [KategoriController::class, 'update'])->name('kategori.update');
 Route::delete('/kategori/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
 
-
 // Routes untuk Pegawai
 Route::get('/pegawai', [PegawaiController::class, 'index'])->name('pegawai.index');  // Menampilkan daftar pegawai
 Route::get('/pegawai/create', [PegawaiController::class, 'create'])->name('pegawai.create');  // Form tambah pegawai
@@ -45,8 +47,6 @@ Route::post('/pegawai', [PegawaiController::class, 'store'])->name('pegawai.stor
 Route::get('/pegawai/{id}/edit', [PegawaiController::class, 'edit'])->name('pegawai.edit');  // Form edit pegawai
 Route::put('/pegawai/{id}', [PegawaiController::class, 'update'])->name('pegawai.update');  // Memperbarui pegawai
 Route::delete('/pegawai/{id}', [PegawaiController::class, 'destroy'])->name('pegawai.destroy');  // Menghapus pegawai
-
-
 
 // Rotes untuk Diskon
 Route::get('diskon', [DiskonController::class, 'index'])->name('diskon.index'); // Menampilkan semua diskon

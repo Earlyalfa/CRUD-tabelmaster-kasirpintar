@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\KategoriResource;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 

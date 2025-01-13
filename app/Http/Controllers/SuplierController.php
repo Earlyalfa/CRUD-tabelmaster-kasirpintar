@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\SuplierResource;
 use App\Models\Suplier;
 use Illuminate\Http\Request;
 

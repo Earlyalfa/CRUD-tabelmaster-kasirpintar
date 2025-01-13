@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\DiskonResource;
 use App\Models\Diskon;
 use Illuminate\Http\Request;
 
