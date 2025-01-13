@@ -11,9 +11,8 @@
             padding: 0;
             background-color: #f4f4f4;
         }
-            header {
-            background-color: #1ABC9C; /* Kasir Pintar brand color */
-            color: white;
+        header {
+            background-color: #7289da;  
             padding: 15px 20px;
             display: flex;
             justify-content: space-between;
@@ -31,11 +30,13 @@
             margin: 0;
             font-size: 24px;
             font-weight: bold;
+            color: white; /* Menambahkan warna putih pada teks h1 */
         }
 
         header p {
             margin: 5px 0;
             font-size: 14px;
+            color: white; /* Menambahkan warna putih pada teks p */
         }
 
         .hamburger {
@@ -66,7 +67,7 @@
             font-weight: bold;
         }
         nav a:hover {
-            color: #1ABC9C;
+            color:  #7289da;
         }
         .sidebar {
             width: 250px;
@@ -90,7 +91,7 @@
             border-bottom: 1px solid #34495E;
         }
         .sidebar a:hover {
-            background-color: #1ABC9C;
+            background-color: #7289da;
         }
         .close-btn {
             font-size: 30px;
@@ -132,12 +133,13 @@
         footer {
             text-align: center;
             padding: 10px 0;
-            background-color: #1ABC9C;
+            background-color: #7289da;
             color: white;
             position: fixed;
             bottom: 0;
             width: 100%;
         }
+        
     </style>
 </head>
 <body>
@@ -148,7 +150,10 @@
         </div>
         <button class="hamburger" onclick="toggleSidebar()">&#9776;</button>
     </header>
+    <div class="container">
+    <!-- Sidebar -->
     <div class="sidebar">
+    <ul>
         <span class="close-btn" onclick="toggleSidebar()">&#10005;</span>
         <h3>Menu</h3>
         <a href="{{ route('produk.index') }}">Produk atau Barang</a>
@@ -156,82 +161,15 @@
         <a href="{{ route('diskon.index') }}">Diskon</a>
         <a href="{{ route('suplier.index') }}">Suplier</a>
         <a href="{{ route('pegawai.index') }}">Pegawai</a>
-        <a href="#">Transaksi</a>
+        <a href="{{ route('transaksi.index') }}">Transaksi</a>
         <a href="#">Laporan</a>
         <a href="#">Pengaturan</a>
         <a href="#">E-Wallet</a>
         <a href="#">Iklan</a>
-    </div>
-    <div class="content">
-        <h2>Barang atau Jasa</h2>
-        <div class="notification">
-            <p>Toko Anda belum atur titik pin lokasi toko, ayo atur titik lokasi sekarang.</p>
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Kode</th>
-                    <th>Nama</th>
-                    <th>Kategori</th>
-                    <th>Harga Jual (Rp)</th>
-                    <th>Harga Dasar (Rp)</th>
-                    <th>Stok</th>
-                    <th>Diskon</th>
-                    <th>Tipe Barang</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>A004</td>
-                    <td>Sepatu</td>
-                    <td>Fashion</td>
-                    <td>250.000</td>
-                    <td>200.000</td>
-                    <td>50</td>
-                    <td>10%</td>
-                    <td>Default</td>
-                    <td><button style="padding: 5px; background-color: #1ABC9C; color: white; border: none;">Edit</button></td>
-                </tr>
-                <tr>
-                    <td>A003</td>
-                    <td>Jam Tangan</td>
-                    <td>Fashion</td>
-                    <td>155.000</td>
-                    <td>135.000</td>
-                    <td>100</td>
-                    <td>5%</td>
-                    <td>Default</td>
-                    <td><button style="padding: 5px; background-color: #1ABC9C; color: white; border: none;">Edit</button></td>
-                </tr>
-                <tr>
-                    <td>A002</td>
-                    <td>Totebag</td>
-                    <td>Fashion</td>
-                    <td>65.000</td>
-                    <td>50.000</td>
-                    <td>50</td>
-                    <td>0%</td>
-                    <td>Default</td>
-                    <td><button style="padding: 5px; background-color: #1ABC9C; color: white; border: none;">Edit</button></td>
-                </tr>
-                <tr>
-                    <td>A001</td>
-                    <td>Gelang</td>
-                    <td>Perhiasan</td>
-                    <td>20.000</td>
-                    <td>18.000</td>
-                    <td>50</td>
-                    <td>0%</td>
-                    <td>Default</td>
-                    <td><button style="padding: 5px; background-color: #1ABC9C; color: white; border: none;">Edit</button></td>
-                </tr>
-            </tbody>
-        </table>
-        <p>Showing 1 to 4 of 4 entries</p>
+    </ul>
     </div>
     <footer>
-        <p>&copy; 2025 Kasir Pintar - All Rights Reserved</p>
+        <p>Kasir Pintar </p>
     </footer>
 
     <script>
@@ -242,4 +180,3 @@
     </script>
 </body>
 </html>
-

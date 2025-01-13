@@ -11,11 +11,11 @@
         <h1 class="mb-4">Daftar Suplier</h1>
 
         <!-- Tombol Tambah Suplier -->
-        <a href="{{ route('suplier.create') }}" class="btn btn-success mb-3">Tambah Suplier</a>
+        <a href="{{ route('suplier.create') }}" class="btn btn-primary mb-3">Tambah Suplier</a>
 
         <!-- Tabel Daftar Suplier -->
         <table class="table table-bordered">
-            <thead class="table-success">
+            <thead class="table-primary">
                 <tr>
                     <th>ID</th>
                     <th>Nama Suplier</th>

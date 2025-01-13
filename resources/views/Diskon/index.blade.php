@@ -11,11 +11,11 @@
         <h1 class= "mb-4">Daftar Diskon</h1>
 
         <div class="d-flex justify-content-between mb-3">
-        <a href="{{ route('diskon.create') }}" class="btn btn-success">Tambah Diskon</a>
+        <a href="{{ route('diskon.create') }}" class="btn btn-primary ">Tambah Diskon</a>
         </div>
 
         <table class="table table-bordered">
-            <thead class="table-success">
+            <thead class="table-primary ">
                 <tr>
                     <th>Nama Diskon</th>
                     <th>Nilai</th>

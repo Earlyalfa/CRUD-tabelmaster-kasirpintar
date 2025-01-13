@@ -42,7 +42,7 @@
 
             <div class="d-flex justify-content-end">
             <a href="{{ route('produk.index') }}" class="btn btn-secondary">Batal</a>
-            <button type="submit" class="btn btn-success ms-2">Tambah</button>
+            <button type="submit" class="btn btn-primary ms-2">Tambah</button>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

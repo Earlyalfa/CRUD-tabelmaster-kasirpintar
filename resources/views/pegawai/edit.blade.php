@@ -26,7 +26,7 @@
                 <input type="time" class="form-control" id="sift_akhir" name="sift_akhir" value="{{ $pegawai->sift_akhir }}" required>
             </div>
             <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-success">Simpan</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
     </div>
 </body>

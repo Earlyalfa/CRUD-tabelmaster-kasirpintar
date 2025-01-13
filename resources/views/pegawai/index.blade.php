@@ -11,11 +11,11 @@
         <h1  class="mb-4">Daftar Pegawai</h1>
 
         <div class="d-flex justify-content-between mb-3">
-        <a href="{{ route('pegawai.create') }}" class="btn btn-success">Tambah Pegawai</a>
+        <a href="{{ route('pegawai.create') }}" class="btn btn-primary">Tambah Pegawai</a>
         </div>
 
         <table class="table table-bordered">
-            <thead class="table-success">
+            <thead class="table-primary">
                 <tr>
                     <th>ID</th>
                     <th>Nama Pegawai</th>

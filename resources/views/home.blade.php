@@ -12,7 +12,7 @@
             background-color: #f4f4f4;
         }
         header {
-            background-color: #1ABC9C;
+            background-color: #7289da;
             color: white;
             text-align: center;
             padding: 40px;
@@ -39,29 +39,33 @@
             font-size: 16px;
         }
         nav a:hover {
-            color: #1ABC9C;
+            color: #7289da;
         }
         .hero-section {
-            text-align: center;
+            display: flex;
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
             padding: 60px 20px;
             background-color: #ECF0F1;
             margin-top: 40px;
+            text-align: center; 
         }
         .hero-section h2 {
             font-size: 30px;
-            color: #1ABC9C;
+            color: #7289da;
             font-weight: bold;
         }
         .hero-section p {
             font-size: 18px;
             color: #555;
             max-width: 600px;
-            margin: 20px auto;
+            margin: 20px 0;
             line-height: 1.6;
         }
         .cta-btn {
             padding: 15px 40px;
-            background-color: #1ABC9C;
+            background-color: #7289da;
             color: white;
             font-size: 18px;
             border: none;
@@ -70,7 +74,7 @@
             text-decoration: none;
         }
         .cta-btn:hover {
-            background-color: #16A085;
+            background-color:  #7289da; 
         }
         .feature-section {
             display: flex;
@@ -92,10 +96,6 @@
         .feature-box:hover {
             transform: scale(1.05);
         }
-        .feature-box img {
-            width: 60px;
-            margin-bottom: 20px;
-        }
         .feature-box h3 {
             font-size: 20px;
             margin-bottom: 10px;
@@ -103,7 +103,7 @@
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #1ABC9C;
+            background-color: #7289da;
             color: white;
         }
     </style>
@@ -115,10 +115,7 @@
     </header>
     
     <nav>
-        <a href="{{ route('home') }}">Home</a>
-        <a href="{{ route('dashboard') }}">Dashboard</a>
-        <a href="#">Fitur</a>
-        <a href="#">Harga</a>
+        <!-- Add your nav links here -->
     </nav>
     
     <div class="hero-section">
@@ -129,24 +126,21 @@
     
     <div class="feature-section">
         <div class="feature-box">
-            <img src="https://via.placeholder.com/60" alt="Fitur 1">
             <h3>Manajemen Stok</h3>
             <p>Kelola stok barang dengan mudah dan akurat.</p>
         </div>
         <div class="feature-box">
-            <img src="https://via.placeholder.com/60" alt="Fitur 2">
             <h3>Transaksi Cepat</h3>
             <p>Proses transaksi yang cepat dan efisien.</p>
         </div>
         <div class="feature-box">
-            <img src="https://via.placeholder.com/60" alt="Fitur 3">
             <h3>Laporan Keuangan</h3>
             <p>Dapatkan laporan lengkap dan real-time.</p>
         </div>
     </div>
     
     <footer>
-        <p>&copy; 2025 Kasir Pintar - All Rights Reserved</p>
+        <p>&copy; Kasir Pintar </p>
     </footer>
 </body>
 </html>

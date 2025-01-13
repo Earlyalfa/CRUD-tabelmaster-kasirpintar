@@ -30,7 +30,7 @@
                 <input type="text" class="form-control" id="no_hp" name="no_hp" value="{{ $suplier->no_hp }}" required>
             </div>
             <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-success">Simpan</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
     </div>
 

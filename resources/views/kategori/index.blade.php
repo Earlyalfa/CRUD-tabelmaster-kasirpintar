@@ -11,11 +11,11 @@
         <h1 class="mb-4">Daftar Kategori</h1>
 
         <div class="d-flex justify-content-between mb-3">
-            <a href="{{ route('kategori.create') }}" class="btn btn-success">Tambah Kategori</a>
+            <a href="{{ route('kategori.create') }}" class="btn btn-primary">Tambah Kategori</a>
         </div>
 
         <table class="table table-bordered">
-            <thead class="table-success">
+            <thead class="table-primary">
                 <tr>
                     <th>ID</th>
                     <th>Nama Kategori</th>

@@ -7,6 +7,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\DiskonController;
+use App\Http\Controllers\TransaksiController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -26,3 +27,6 @@ Route::apiResource('pegawai', PegawaiController::class);
 
 // Routes untuk Diskon
 Route::apiResource('diskon', diskonController::class);
+
+// Routes untuk Transaksi
+Route::apiResource('transaksi', transaksiController::class);
