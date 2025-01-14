@@ -30,9 +30,7 @@ class PegawaiController extends Controller
             'sift_akhir' => 'required|date_format:H:i', 
         ]);
 
-        Pegawai::create ([
-            'pegawai' => $request->pegawai,
-        ]);  // Menyimpan pegawai baru ke database
+        Pegawai::create($request->all()); 
         return redirect()->route('pegawai.index')->with('success', 'Pegawai berhasil ditambahkan.');
     }
 
@@ -48,14 +46,12 @@ class PegawaiController extends Controller
     {
         $request->validate([
             'nama_pegawai' => 'required|string|max:255',
-            'sift_awal' => 'required|date_format:H:i:s',  
-            'sift_akhir' => 'required|date_format:H:i:s', 
+            'sift_awal' => 'required|date_format:H:i',  
+            'sift_akhir' => 'required|date_format:H:i', 
         ]);
 
         $pegawai = Pegawai::findOrFail($id);
-        $pegawai->update([
-            'pegawai' => $request->pegawaii,
-        ]);
+        $pegawai->update($request->all());
         return redirect()->route('pegawai.index')->with('success', 'Pegawai berhasil diperbarui.');
     }
 

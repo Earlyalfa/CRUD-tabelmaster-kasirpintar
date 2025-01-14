@@ -29,8 +29,8 @@
                     <tr>
                         <td>{{ $key + 1 }}</td>
                         <td>{{ $item->nama_pegawai }}</td>
-                        <td>{{ $item->sift_awal }}</td>
-                        <td>{{ $item->sift_akhir }}</td>
+                        <td>{{ \Carbon\Carbon::parse($item->sift_awal)->format('h:i A') }}
+                        <td>{{ \Carbon\Carbon::parse($item->sift_akhir)->format('h:i A') }}
                         <td>
                             <a href="{{ route('pegawai.edit', ['id' => $item->id]) }}" class="btn btn-warning btn-sm">Edit</a>
                             <form action="{{ route('pegawai.destroy', ['id' => $item->id]) }}" method="POST" style="display:inline;">

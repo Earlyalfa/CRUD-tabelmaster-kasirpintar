@@ -23,7 +23,7 @@
             </div>
             <div class="mb-3">
                 <label for="sift_akhir" class="form-label">Sift Akhir</label>
-                <input type="time" class="form-control" id="sift_akhir" name="sift_akhir" value="{{ $pegawai->sift_akhir }}" required>
+                <input type="time" class="form-control" id="sift_akhir" name="sift_akhir" value="{{ $pegawai->sift_akhir }" required>
             </div>
             <div class="d-flex justify-content-end">
             <button type="submit" class="btn btn-primary">Simpan</button>
