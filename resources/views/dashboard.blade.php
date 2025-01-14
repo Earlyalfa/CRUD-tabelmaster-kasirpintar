@@ -169,7 +169,7 @@
     </ul>
     </div>
     <footer>
-        <p>Kasir Pintar </p>
+        <p>&copy; Kasir Pintar </p>
     </footer>
 
     <script>

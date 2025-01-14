@@ -17,7 +17,7 @@
         <table class="table table-bordered">
             <thead class="table-primary">
                 <tr>
-                <th>No</th>
+                <th>ID</th>
                 <th>Tanggal Transaksi</th>
                 <th>Nama Produk</th>
                 <th>Kategori</th>
@@ -35,13 +35,13 @@
             @foreach($transaksis as $key => $item)
                 <tr>
                     <td>{{ $key + 1}}</td>
-                    <td>{{ $item->tanggal_transaksi }}</td> 
+                    <td>{{ \Carbon\Carbon::parse($item->tanggal_transaksi)->format('d F Y') }}</td>
                     <td>{{ $item->nama_produk }}</td>
                     <td>{{ $item->kategori }}</td>
                     <td>{{ $item->jumlah }}</td>
-                    <td>{{ $item->harga_satuan }}</td>
-                    <td>{{ $item->sub_total }}</td>
-                    <td>{{ $item->total_transaksi }}</td>
+                    <td>Rp{{ number_format($item->harga_satuan, 0, ',', '.') }}</td>
+                    <td>Rp{{ number_format($item->sub_total, 0, ',', '.') }}</td>
+                    <td>Rp{{ number_format($item->total_transaksi, 0, ',', '.') }}</td>
                     <td>{{ $item->diskon }}</td>
                     <td>{{ $item->metode_pembayaran }}</td>
                     <td>{{ $item->status_pembayaran }}</td>

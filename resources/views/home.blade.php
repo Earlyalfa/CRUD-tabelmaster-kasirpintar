@@ -120,7 +120,7 @@
     
     <div class="hero-section">
         <h2>Kelola Bisnis UMKM Anda dengan Mudah</h2>
-        <p>Kasir Pintar menawarkan solusi lengkap untuk bisnis Anda, dari manajemen stok hingga laporan keuangan otomatis, yang dapat membantu Anda mengelola usaha lebih efektif dan efisien.</p>
+        <p>Kasir Pintar menawarkan solusi lengkap untuk bisnis Anda, yang dapat membantu Anda mengelola usaha lebih efektif dan efisien.</p>
         <a href="{{ route('dashboard') }}" class="cta-btn">Mulai Sekarang</a>
     </div>
     

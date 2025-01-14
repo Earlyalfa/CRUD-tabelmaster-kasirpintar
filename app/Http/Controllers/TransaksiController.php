@@ -2,90 +2,78 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\TransaksiResource;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
-use App\Http\Resources\TransaksiResource;
 
 class TransaksiController extends Controller
 {
+    // Menampilkan semua data transaksi
     public function index()
     {
-        // Mendapatkan semua transaksi dari database
         $transaksis = Transaksi::all();
-        // Mengembalikan view dengan data transaksi
         return view('transaksi.index', compact('transaksis'));
     }
 
+    // Menampilkan form tambah transaksi
     public function create()
     {
-        // Menampilkan form untuk membuat transaksi baru
         return view('transaksi.create');
     }
 
+    // Menyimpan transaksi baru
     public function store(Request $request)
     {
-        // Validasi data yang dikirimkan dari form
-        $validatedData = $request->validate([
+        $request->validate([
             'tanggal_transaksi' => 'required|date',
-            'id_produk' => 'required|integer',
             'nama_produk' => 'required|string|max:255',
-            'jumlah' => 'required|integer',
-            'harga_satuan' => 'required|numeric',
-            'total_transaksi' => 'required|numeric',
-            'status_pembayaran' => 'required|in:Lunas,Hutang',
+            'kategori' => 'required|string|max:255',
+            'jumlah' => 'required|integer|min:1',
+            'harga_satuan' => 'required|numeric|min:0',
+            'sub_total' => 'required|numeric|min:0',
+            'total_transaksi' => 'required|numeric|min:0',
+            'diskon' => 'required|numeric|min:0',
+            'metode_pembayaran' => 'required|string|max:255',
+            'status_pembayaran' => 'required|string|max:255',
         ]);
 
-        // Menyimpan transaksi ke dalam database
-        Transaksi::create($validatedData);
-
-        // Redirect ke halaman daftar transaksi setelah berhasil
-        return redirect()->route('transaksi.index')->with('success', 'Transaksi berhasil dibuat!');
+        Transaksi::create($request->all());
+        return redirect()->route('transaksi.index')->with('success', 'Transaksi berhasil ditambahkan');
     }
 
-    public function show($id)
-    {
-        // Menampilkan detail transaksi berdasarkan ID
-        $transaksi = Transaksi::findOrFail($id);
-        return view('transaksi.show', compact('transaksi'));
-    }
-
+    // Menampilkan form edit transaksi
     public function edit($id)
     {
-        // Menampilkan form untuk mengedit transaksi yang sudah ada
         $transaksi = Transaksi::findOrFail($id);
         return view('transaksi.edit', compact('transaksi'));
     }
 
+    // Memperbarui data transaksi
     public function update(Request $request, $id)
     {
-        // Validasi data yang dikirimkan dari form
-        $validatedData = $request->validate([
+        $request->validate([
             'tanggal_transaksi' => 'required|date',
-            'id_produk' => 'required|integer',
             'nama_produk' => 'required|string|max:255',
-            'jumlah' => 'required|integer',
-            'harga_satuan' => 'required|numeric',
-            'total_transaksi' => 'required|numeric',
-            'status_pembayaran' => 'required|in:Lunas,Hutang',
+            'kategori' => 'required|string|max:255',
+            'jumlah' => 'required|integer|min:1',
+            'harga_satuan' => 'required|numeric|min:0',
+            'sub_total' => 'required|numeric|min:0',
+            'total_transaksi' => 'required|numeric|min:0',
+            'diskon' => 'required|numeric|min:0',
+            'metode_pembayaran' => 'required|string|max:255',
+            'status_pembayaran' => 'required|string|max:255',
         ]);
 
-        // Mendapatkan transaksi yang akan diupdate
         $transaksi = Transaksi::findOrFail($id);
-        // Memperbarui data transaksi
-        $transaksi->update($validatedData);
-
-        // Redirect ke halaman daftar transaksi setelah berhasil
-        return redirect()->route('transaksi.index')->with('success', 'Transaksi berhasil diperbarui!');
+        $transaksi->update($request->all());
+        return redirect()->route('transaksi.index')->with('success', 'Transaksi berhasil diperbarui');
     }
 
+    // Menghapus data transaksi
     public function destroy($id)
     {
-        // Mendapatkan transaksi yang akan dihapus
         $transaksi = Transaksi::findOrFail($id);
-        // Menghapus transaksi dari database
         $transaksi->delete();
-
-        // Redirect ke halaman daftar transaksi setelah berhasil dihapus
-        return redirect()->route('transaksi.index')->with('success', 'Transaksi berhasil dihapus!');
+        return redirect()->route('transaksi.index')->with('success', 'Transaksi berhasil dihapus');
     }
 }
