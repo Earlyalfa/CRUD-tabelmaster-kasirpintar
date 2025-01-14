@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Suplier extends Model
 {
     protected $table = 'supliers';
-
     protected $fillable = ['nama', 'alamat', 'email', 'no_hp'];
 
     public function produks()

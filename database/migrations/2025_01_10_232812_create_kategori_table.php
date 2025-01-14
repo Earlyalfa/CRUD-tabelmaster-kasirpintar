@@ -15,9 +15,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kategori', function (Blueprint $table) {
-            $table->id(); // Kolom id dengan auto increment
-            $table->string('kategori'); // Kolom nama kategori
-            $table->timestamps(); // Kolom created_at dan updated_at
+            $table->id(); // auto increment
+            $table->string('kategori'); 
+            $table->timestamps(); // created_at dan updated_at
         });
     }
 

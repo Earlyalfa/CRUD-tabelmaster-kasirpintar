@@ -9,10 +9,7 @@ class Transaksi extends Model
 {
     use HasFactory;
 
-    // Nama tabel
     protected $table = 'transaksis';
-
-    // Kolom yang dapat diisi
     protected $fillable = [
         'tanggal_transaksi',
         'id_produk',
@@ -27,6 +24,5 @@ class Transaksi extends Model
         'status_pembayaran',
     ];
 
-    // Mengaktifkan timestamps
     public $timestamps = true;
 }

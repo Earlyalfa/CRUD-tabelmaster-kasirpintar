@@ -13,7 +13,7 @@ class ProdukController extends Controller
     // Menampilkan daftar produk
     public function index()
     {
-        $produks = Produk::with('kategori')->paginate(10); // Menambahkan paginasi 10 produk per halaman
+        $produks = Produk::with('kategori')->paginate(10); 
         return view('Produk.index', compact('produks'));
     }
     
@@ -21,7 +21,7 @@ class ProdukController extends Controller
     // Menampilkan form tambah produk
     public function create()
     {
-        $kategori = Kategori::all(); // Ambil semua kategori untuk dropdown
+        $kategori = Kategori::all(); 
         return view('produk.create', compact('kategori'));
     }
 

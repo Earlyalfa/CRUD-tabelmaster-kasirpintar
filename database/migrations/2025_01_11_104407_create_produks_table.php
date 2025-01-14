@@ -14,7 +14,7 @@ class CreateProduksTable extends Migration
             $table->id();
             $table->string('nama_produk');
             $table->string('kode_produk');
-            $table->foreignId('kategori_id')->constrained('kategori')->onDelete('cascade'); // pastikan nama tabel kategoris sesuai
+            $table->foreignId('kategori_id')->constrained('kategori')->onDelete('cascade'); 
             $table->decimal('harga_beli', 15, 2);
             $table->decimal('harga_jual', 15, 2);
             $table->integer('stok');

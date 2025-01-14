@@ -11,14 +11,14 @@ class PegawaiController extends Controller
     // Menampilkan daftar pegawai
     public function index()
     {
-        $pegawais = Pegawai::all();  // Mengambil semua data pegawai dari database
-        return view('pegawai.index', compact('pegawais'));  // Mengirim data pegawai ke view
+        $pegawais = Pegawai::all();  
+        return view('pegawai.index', compact('pegawais'));  
     }
 
     // Menampilkan form untuk menambahkan pegawai baru
     public function create()
     {
-        return view('pegawai.create');  // Menampilkan halaman form tambah pegawai
+        return view('pegawai.create');  
     }
 
     // Menyimpan data pegawai baru
@@ -26,8 +26,8 @@ class PegawaiController extends Controller
     {
         $request->validate([
             'nama_pegawai' => 'required|string|max:255',
-            'sift_awal' => 'required|date_format:H:i',  // Validasi format waktu H:i:s
-            'sift_akhir' => 'required|date_format:H:i', // Validasi format waktu H:i:s
+            'sift_awal' => 'required|date_format:H:i',  
+            'sift_akhir' => 'required|date_format:H:i', 
         ]);
 
         Pegawai::create ([
@@ -39,8 +39,8 @@ class PegawaiController extends Controller
     // Menampilkan form untuk mengedit pegawai
     public function edit($id)
     {
-        $pegawai = Pegawai::findOrFail($id);  // Mencari pegawai berdasarkan ID
-        return view('pegawai.edit', compact('pegawai'));  // Menampilkan halaman edit pegawai
+        $pegawai = Pegawai::findOrFail($id);  
+        return view('pegawai.edit', compact('pegawai'));  
     }
 
     // Memperbarui data pegawai
@@ -48,8 +48,8 @@ class PegawaiController extends Controller
     {
         $request->validate([
             'nama_pegawai' => 'required|string|max:255',
-            'sift_awal' => 'required|date_format:H:i:s',  // Validasi format waktu H:i:s
-            'sift_akhir' => 'required|date_format:H:i:s', // Validasi format waktu H:i:s
+            'sift_awal' => 'required|date_format:H:i:s',  
+            'sift_akhir' => 'required|date_format:H:i:s', 
         ]);
 
         $pegawai = Pegawai::findOrFail($id);
@@ -62,8 +62,8 @@ class PegawaiController extends Controller
     // Menghapus pegawai
     public function destroy($id)
     {
-        $pegawai = Pegawai::findOrFail($id);  // Mencari pegawai berdasarkan ID
-        $pegawai->delete();  // Menghapus pegawai dari database
+        $pegawai = Pegawai::findOrFail($id);  
+        $pegawai->delete();  
         return redirect()->route('pegawai.index')->with('success', 'Pegawai berhasil dihapus.');
     }
 }

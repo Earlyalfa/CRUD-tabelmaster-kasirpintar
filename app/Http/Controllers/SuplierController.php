@@ -8,20 +8,20 @@ use Illuminate\Http\Request;
 
 class SuplierController extends Controller
 {
-    // Menampilkan daftar suplier (GET)
+    // Menampilkan daftar suplier 
     public function index()
     {
-        $supliers = Suplier::all(); // Mengambil semua data suplier dari database
-        return view('suplier.index', compact('supliers')); // Mengirim data ke tampilan
+        $supliers = Suplier::all(); 
+        return view('suplier.index', compact('supliers')); 
     }
 
-    // Menampilkan form tambah suplier (GET)
+    // Menampilkan form tambah suplier 
     public function create()
     {
-        return view('suplier.create'); // Menampilkan form tambah suplier
+        return view('suplier.create'); 
     }
 
-    // Menyimpan suplier baru ke database (POST)
+    // Menyimpan suplier baru ke database 
     public function store(Request $request)
     {
         // Validasi input data
@@ -32,19 +32,19 @@ class SuplierController extends Controller
             'no_hp' => 'required',
         ]);
 
-        // Menyimpan data suplier baru ke database
+     
         Suplier::create($request->all());
 
         return redirect()->route('suplier.index')->with('success', 'Suplier berhasil ditambahkan!');
     }
 
-    // Menampilkan form edit suplier (GET)
+    // Menampilkan form edit suplier 
     public function edit(Suplier $suplier)
     {
-        return view('suplier.edit', compact('suplier')); // Menampilkan form edit untuk suplier tertentu
+        return view('suplier.edit', compact('suplier')); 
     }
 
-    // Mengupdate data suplier (PUT)
+    // Mengupdate data suplier 
     public function update(Request $request, Suplier $suplier)
     {
         $request->validate([
@@ -54,13 +54,12 @@ class SuplierController extends Controller
             'no_hp' => 'required',
         ]);
 
-        // Mengupdate data suplier di database
         $suplier->update($request->all());
 
         return redirect()->route('suplier.index')->with('success', 'Suplier berhasil diperbarui!');
     }
 
-    // Menghapus suplier (DELETE)
+    // Menghapus suplier 
     public function destroy($id)
     {
         $diskon = Suplier::findOrFail($id);
