@@ -12,6 +12,7 @@
 
         <div class="mb-3">
             <a href="{{ route('produk.create') }}" class="btn btn-primary"> Tambah Produk</a>
+            <a href="{{ route('dashboard') }}" class="btn btn-secondary">Dashboard</a>
         </div>
 
         <table class="table table-bordered">

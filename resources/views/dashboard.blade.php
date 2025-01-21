@@ -30,13 +30,13 @@
             margin: 0;
             font-size: 24px;
             font-weight: bold;
-            color: white; /* Menambahkan warna putih pada teks h1 */
+            color: white;
         }
 
         header p {
             margin: 5px 0;
             font-size: 14px;
-            color: white; /* Menambahkan warna putih pada teks p */
+            color: white;
         }
 
         .hamburger {
@@ -54,21 +54,6 @@
             color: #fff;
         }
 
-        nav {
-            display: flex;
-            background-color: #fff;
-            border-bottom: 1px solid #ddd;
-            padding: 10px;
-        }
-        nav a {
-            margin-right: 15px;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
-        nav a:hover {
-            color:  #7289da;
-        }
         .sidebar {
             width: 250px;
             background-color: #2C3E50;
@@ -101,34 +86,16 @@
             top: 20px;
             right: 20px;
         }
-        .content {
-            margin-left: 270px;
-            padding: 20px;
+        .submenu {
+            display: none;
+            padding-left: 20px;
+            background-color: #34495e;
         }
-        .content h2 {
-            margin-bottom: 20px;
+        .submenu a {
+            padding: 8px 0;
         }
-        .notification {
-            background-color: #FFEB3B;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #FFD54F;
-            border-radius: 5px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
+        .submenu a:hover {
+            background-color: #3b5998;
         }
         footer {
             text-align: center;
@@ -139,7 +106,6 @@
             bottom: 0;
             width: 100%;
         }
-        
     </style>
 </head>
 <body>
@@ -153,20 +119,36 @@
     <div class="container">
     <!-- Sidebar -->
     <div class="sidebar">
-    <ul>
-        <span class="close-btn" onclick="toggleSidebar()">&#10005;</span>
-        <h3>Menu</h3>
-        <a href="{{ route('produk.index') }}">Produk atau Barang</a>
-        <a href="{{ route('kategori.index') }}">Kategori</a>
-        <a href="{{ route('diskon.index') }}">Diskon</a>
-        <a href="{{ route('suplier.index') }}">Suplier</a>
-        <a href="{{ route('pegawai.index') }}">Pegawai</a>
-        <a href="{{ route('transaksi.index') }}">Transaksi</a>
-        <a href="#">Laporan</a>
-        <a href="#">Pengaturan</a>
-        <a href="#">E-Wallet</a>
-        <a href="#">Iklan</a>
-    </ul>
+        <ul>
+            <span class="close-btn" onclick="toggleSidebar()">&#10005;</span>
+            <h3>Menu</h3>
+            <a href="#" onclick="toggleSubMenu('databaseSubmenu')">Database</a>
+            <div id="databaseSubmenu" class="submenu">
+                <a href="{{ route('produk.index') }}">Produk atau Barang</a>
+                <a href="{{ route('kategori.index') }}">Kategori</a>
+                <a href="{{ route('diskon.index') }}">Diskon</a>
+                <a href="{{ route('suplier.index') }}">Suplier</a>
+                <a href="{{ route('pegawai.index') }}">Pegawai</a>
+                <a href="{{ route('transaksi.index') }}">Transaksi</a>
+            </div>
+            <a href="#" onclick="toggleSubMenu('laporanSubmenu')">Laporan</a>
+            <div id="laporanSubmenu" class="submenu">
+                <a href="{{ route('penjualan.index') }}">Laporan penjualan</a>
+                <a href="#">Laporan stok barang</a>
+                <a href="#">Laporan diskon dan promosi</a>
+                <a href="#">Laporan laporan kas</a>
+            </div>
+            <a href="#" onclick="toggleSubMenu('keuanganSubmenu')">Keuangan</a>
+            <div id="keuanganSubmenu" class="submenu">
+            <a href="{{ route('keuangan.index') }}">Laporan keuangan</a>
+            </div>
+            <a href="#" onclick="toggleSubMenu('ewalletSubmenu')">E-Wallet</a>
+            <div id="ewalletSubmenu" class="submenu">
+                <a href="#">Informasi Penjualan</a>
+            </div>
+            <a href="#">Pengaturan</a>
+            <a href="#">Iklan</a>
+        </ul>
     </div>
     <footer>
         <p>&copy; Kasir Pintar </p>
@@ -176,6 +158,15 @@
         function toggleSidebar() {
             const sidebar = document.querySelector('.sidebar');
             sidebar.classList.toggle('open');
+        }
+
+        function toggleSubMenu(submenuId) {
+            const submenu = document.getElementById(submenuId);
+            if (submenu.style.display === 'block') {
+                submenu.style.display = 'none';
+            } else {
+                submenu.style.display = 'block';
+            }
         }
     </script>
 </body>

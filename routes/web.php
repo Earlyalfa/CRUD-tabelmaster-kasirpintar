@@ -7,6 +7,8 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\DiskonController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\PenjualanController;
+use App\Http\Controllers\KeuanganController;
 
 // Halaman Utama
 Route::get('/', function () {
@@ -65,4 +67,22 @@ Route::get('/transaksi/{id}', [TransaksiController::class, 'show'])->name('trans
 Route::get('/transaksi/{id}/edit', [TransaksiController::class, 'edit'])->name('transaksi.edit');
 Route::put('/transaksi/{id}', [TransaksiController::class, 'update'])->name('transaksi.update');
 Route::delete('/transaksi/{id}', [TransaksiController::class, 'destroy'])->name('transaksi.destroy');
+
+// Penjualan
+Route::get('/penjualan', [PenjualanController::class, 'index'])->name('penjualan.index');
+Route::get('/penjualan/create', [PenjualanController::class, 'create'])->name('penjualan.create');
+Route::post('/penjualan', [PenjualanController::class, 'store'])->name('penjualan.store');
+Route::get('/penjualan/{id}', [PenjualanController::class, 'show'])->name('penjualan.show');
+Route::get('/penjualan/{id}/edit', [PenjualanController::class, 'edit'])->name('penjualan.edit');
+Route::put('/penjualan/{id}', [PenjualanController::class, 'update'])->name('penjualan.update');
+Route::delete('/penjualan/{id}', [PenjualanController::class, 'destroy'])->name('penjualan.destroy');
+
+// Keuangan
+Route::get('/keuangan', [KeuanganController::class, 'index'])->name('keuangan.index');  // Menampilkan semua data keuangan
+Route::get('/keuangan/{id}', [KeuanganController::class, 'show'])->name('keuangan.show');  // Menampilkan data berdasarkan ID
+Route::get('/keuangan/create', [KeuanganController::class, 'create'])->name('keuangan.create'); // Form Tambah Data
+Route::post('/keuangan', [KeuanganController::class, 'store'])->name('keuangan.store'); // Proses Simpan Data
+Route::get('/keuangan/{id}/edit', [KeuanganController::class, 'edit'])->name('keuangan.edit');  // Form untuk edit data
+Route::put('/keuangan/{id}', [KeuanganController::class, 'update'])->name('keuangan.update');  // Mengupdate data berdasarkan ID
+Route::delete('/keuangan/{id}', [KeuanganController::class, 'destroy'])->name('keuangan.destroy');  // Menghapus data berdasarkan ID
 

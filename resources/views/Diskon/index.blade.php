@@ -10,8 +10,9 @@
     <div class="container my-5">
         <h1 class= "mb-4">Daftar Diskon</h1>
 
-        <div class="d-flex justify-content-between mb-3">
-        <a href="{{ route('diskon.create') }}" class="btn btn-primary ">Tambah Diskon</a>
+        <div class="mb-3">
+            <a href="{{ route('diskon.create') }}" class="btn btn-primary ">Tambah Diskon</a>
+            <a href="{{ route('dashboard') }}" class="btn btn-secondary">Dashboard</a>
         </div>
 
         <table class="table table-bordered">

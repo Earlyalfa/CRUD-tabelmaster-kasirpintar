@@ -10,8 +10,9 @@
     <div class="container mt-5">
         <h1 class="mb-4">Daftar Transaksi</h1>
 
-        <div class="d-flex justify-content-between mb-3">
+        <div class="mb-3">
             <a href="{{ route('transaksi.create') }}" class="btn btn-primary">Tambah Transaksi</a>
+            <a href="{{ route('dashboard') }}" class="btn btn-secondary">Dashboard</a>
         </div>
 
         <table class="table table-bordered">

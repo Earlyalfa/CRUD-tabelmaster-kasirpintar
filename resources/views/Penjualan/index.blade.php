@@ -3,55 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Suplier</title>
+    <title>Laporan Penjualan</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="mb-4">Daftar Suplier</h1>
 
-        <!-- Tombol Tambah Suplier -->
-        <div class="mb-3">
-            <a href="{{ route('suplier.create') }}" class="btn btn-primary">Tambah Suplier</a>
-            <a href="{{ route('dashboard') }}" class="btn btn-secondary">Dashboard</a>
-        </div>
+<div class="container mt-5">
+    <h1 class= "mb-4">Laporan Penjualan</h1>
 
-        <!-- Tabel Daftar Suplier -->
-        <table class="table table-bordered">
-            <thead class="table-primary">
-                <tr>
-                    <th>ID</th>
-                    <th>Nama Suplier</th>
-                    <th>Alamat</th>
-                    <th>Email</th>
-                    <th>No HP</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($supliers as $suplier)
+    <div class="mb-3">
+        <a href="{{ route('penjualan.create') }}" class="btn btn-primary">Tambah Penjualan</a>
+        <a href="{{ route('dashboard') }}" class="btn btn-secondary">Dashboard</a>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Tanggal Waktu</th>
+                <th>No. Transaksi</th>
+                <th>Nama Kasir</th>
+                <th>Barang Terjual</th>
+                <th>Total Harga</th>
+                <th>Diskon</th>
+                <th>Jumlah</th>
+                <th>Metode Pembayaran</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($penjualan as $penjualan_item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $suplier->nama }}</td>
-                    <td>{{ $suplier->alamat }}</td>
-                    <td>{{ $suplier->email ?? '-' }}</td>
-                    <td>{{ $suplier->no_hp }}</td>
+                    <td>{{ $penjualan_item->tanggal_waktu->format('Y-m-d') }}</td>
+                    <td>{{ $penjualan_item->no_transaksi }}</td>
+                    <td>{{ $penjualan_item->nama_kasir }}</td>
                     <td>
-                        <!-- Tombol Edit -->
-                        <a href="{{ route('suplier.edit', $suplier->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                        
-                        <!-- Form Hapus -->
-                        <form action="{{ route('suplier.destroy', $suplier->id) }}" method="POST" class="d-inline-block" onsubmit="return confirm('Apakah Anda yakin ingin menghapus suplier ini?');">
+                        @php
+                            $barang_terjual = json_decode($penjualan_item->barang_terjual);
+                        @endphp
+                        {{ implode(', ', $barang_terjual) }}
+                    </td>
+                    <td>Rp {{ number_format($penjualan_item->total_harga, 0, ',', '.') }}</td>
+                    <td>{{ number_format($penjualan_item->diskon, 0) }}%</td>
+                    <td>{{ $penjualan_item->jumlah }}</td>
+                    <td>{{ $penjualan_item->metode_pembayaran }}</td>
+                    <td>
+                        <a href="{{ route('penjualan.edit', $penjualan_item->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        <form action="{{ route('penjualan.destroy', $penjualan_item->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus?')">Delete</button>
                         </form>
                     </td>
                 </tr>
-                @endforeach
-            </tbody>
-        </table>
-        
+            @endforeach
+        </tbody>
+    </table>
+
         <!-- Modal Notifikasi Sukses -->
         <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -88,4 +97,3 @@
     </div>
 </body>
 </html>
-

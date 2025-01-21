@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             PegawaiSeeder::class,
             DiskonSeeder::class,
             TransaksiSeeder::class,
+            PenjualanSeeder::class,
+            KeuanganSeeder::class,
         ]);
     }
 }

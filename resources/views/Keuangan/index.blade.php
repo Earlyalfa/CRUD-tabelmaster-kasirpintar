@@ -3,41 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Pegawai</title>
+    <title>Laporan Keuangan</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="mb-4">Daftar Pegawai</h1>
+    <h1  class="mb-4">Laporan Keuangan</h1>
 
-        <div class="mb-3">
-            <a href="{{ route('pegawai.create') }}" class="btn btn-primary">Tambah Pegawai</a>
-            <a href="{{ route('dashboard') }}" class="btn btn-secondary">Dashboard</a>
-        </div>
+    <div class="mb-3">
+        <a href="{{ route('keuangan.create') }}"class="btn btn-primary">Tambah Laporan</a>
+        <a href="{{ route('dashboard') }}" class="btn btn-secondary">Dashboard</a>
+    </div>
 
         <table class="table table-bordered">
             <thead class="table-primary">
                 <tr>
-                    <th>ID</th>
-                    <th>Nama Pegawai</th>
-                    <th>Sift Awal</th>
-                    <th>Sift Akhir</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($pegawais as $key => $item)
-                    <tr>
-                        <td>{{ $key + 1 }}</td>
-                        <td>{{ $item->nama_pegawai }}</td>
-                        <td>{{ \Carbon\Carbon::parse($item->sift_awal)->format('h:i A') }}
-                        <td>{{ \Carbon\Carbon::parse($item->sift_akhir)->format('h:i A') }}
-                        <td>
-                            <a href="{{ route('pegawai.edit', ['id' => $item->id]) }}" class="btn btn-warning btn-sm">Edit</a>
-                            <form action="{{ route('pegawai.destroy', ['id' => $item->id]) }}" method="POST" style="display:inline;">
+                <th>ID</th>
+                <th>Tanggal</th>
+                <th>Pendapatan</th>
+                <th>Pengeluaran</th>
+                <th>Kategori</th>
+                <th>Profit Bersih</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($keuangan as $data)
+            <tr>
+                <td>{{ $data->id }}</td>
+                <td>{{ $data->tanggal }}</td>
+                <td>Rp {{ number_format($data->pendapatan, 0, ',', '.') }}</td>
+                <td>Rp {{ number_format($data->pengeluaran, 0, ',', '.') }}</td>
+                <td>{{ $data->kategori }}</td>
+                <td>Rp {{ number_format($data->profit_bersih, 0, ',', '.') }}</td>
+            <td>
+                        <!-- Edit dan Delete actions -->
+                        <a href="{{ route('keuangan.edit', ['id' => $data->id]) }}" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="{{ route('keuangan.destroy', ['id' => $data->id]) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus pegawai ini?')">Hapus</button>
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus ini?')">Hapus</button>
                             </form>
                         </td>
                     </tr>
