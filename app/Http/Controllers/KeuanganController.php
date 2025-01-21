@@ -21,23 +21,30 @@ class KeuanganController extends Controller
         return view('keuangan.create');
     }
 
-    // Menyimpan data baru ke database
     public function store(Request $request)
     {
-        // Validasi data
-        $validatedData = $request->validate([
+        // Validation
+        $request->validate([
             'tanggal' => 'required|date',
             'pendapatan' => 'required|numeric',
             'pengeluaran' => 'required|numeric',
-            'kategori' => 'required|string',
-            'profit_bersih' => 'required|numeric',
+            'kategori' => 'required|string|max:255',
         ]);
-    
-        // Simpan data ke database
-        Keuangan::create($validatedData);
-    
-        // Redirect dengan pesan sukses
-        return redirect()->route('keuangan.index')->with('success', 'Laporan berhasil ditambahkan.');
+
+        // Calculating profit
+        $profit_bersih = $request->pendapatan - $request->pengeluaran;
+
+        // Storing data
+        Keuangan::create([
+            'tanggal' => $request->tanggal,
+            'pendapatan' => $request->pendapatan,
+            'pengeluaran' => $request->pengeluaran,
+            'kategori' => $request->kategori,
+            'profit_bersih' => $profit_bersih,
+        ]);
+
+        // Redirect with success message
+        return redirect()->route('keuangan.index')->with('success', 'Laporan keuangan berhasil ditambahkan!');
     }
 
     // Menampilkan data berdasarkan ID

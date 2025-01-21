@@ -18,7 +18,5 @@ class Keuangan extends Model
         'kategori',
         'profit_bersih',
     ];
-
-    public $timestamps = true;  
 }
 
