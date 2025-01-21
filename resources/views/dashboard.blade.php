@@ -134,20 +134,21 @@
             <a href="#" onclick="toggleSubMenu('laporanSubmenu')">Laporan</a>
             <div id="laporanSubmenu" class="submenu">
                 <a href="{{ route('penjualan.index') }}">Laporan penjualan</a>
-                <a href="#">Laporan stok barang</a>
-                <a href="#">Laporan diskon dan promosi</a>
-                <a href="#">Laporan laporan kas</a>
+                <a href="#">Laporan Stok Barang</a>
+                <a href="#">Laporan Diskon dan Promosi</a>
             </div>
             <a href="#" onclick="toggleSubMenu('keuanganSubmenu')">Keuangan</a>
             <div id="keuanganSubmenu" class="submenu">
             <a href="{{ route('keuangan.index') }}">Laporan keuangan</a>
+            <a href="#">Detail Pendapatan</a>
+            <a href="#">Detail Pengeluaran</a>
+            <a href="#">Rekapitulasi Keuangan Bulanan</a>
             </div>
             <a href="#" onclick="toggleSubMenu('ewalletSubmenu')">E-Wallet</a>
             <div id="ewalletSubmenu" class="submenu">
                 <a href="#">Informasi Penjualan</a>
             </div>
             <a href="#">Pengaturan</a>
-            <a href="#">Iklan</a>
         </ul>
     </div>
     <footer>
