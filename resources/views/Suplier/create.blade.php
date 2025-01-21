@@ -30,7 +30,7 @@
             </div>
 
             <div class="d-flex justify-content-end">
-            <a href="{{ route('produk.index') }}" class="btn btn-secondary">Batal</a>
+            <a href="{{ route('suplier.index') }}" class="btn btn-secondary">Batal</a>
             <button type="submit" class="btn btn-primary ms-2">Tambah</button>
         </form>
     </div>

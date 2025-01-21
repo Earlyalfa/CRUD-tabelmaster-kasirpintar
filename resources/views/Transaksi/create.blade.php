@@ -52,7 +52,7 @@
                 <input type="text" name="status_pembayaran" class="form-control" required>
             </div>
             <div class="d-flex justify-content-end">
-            <a href="{{ route('produk.index') }}" class="btn btn-secondary">Batal</a>
+            <a href="{{ route('transaksi.index') }}" class="btn btn-secondary">Batal</a>
             <button type="submit" class="btn btn-primary ms-2">Tambah</button>
         </form>
     </div>
