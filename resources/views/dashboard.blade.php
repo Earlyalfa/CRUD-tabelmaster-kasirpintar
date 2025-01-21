@@ -134,8 +134,9 @@
             <a href="#" onclick="toggleSubMenu('laporanSubmenu')">Laporan</a>
             <div id="laporanSubmenu" class="submenu">
                 <a href="{{ route('penjualan.index') }}">Laporan penjualan</a>
-                <a href="#">Laporan Stok Barang</a>
                 <a href="#">Laporan Diskon dan Promosi</a>
+                <a href="#">Laporan Stok Barang</a>
+                <a href="#">Rrkapitulasi Stok Barang</a>
             </div>
             <a href="#" onclick="toggleSubMenu('keuanganSubmenu')">Keuangan</a>
             <div id="keuanganSubmenu" class="submenu">
