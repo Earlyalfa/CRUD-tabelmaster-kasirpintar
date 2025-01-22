@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             BulananSeeder::class,
             DiskonPromosiSeeder::class,
             LastokSeeder::class,
+            RekapSeeder::class,
         ]);
     }
 }

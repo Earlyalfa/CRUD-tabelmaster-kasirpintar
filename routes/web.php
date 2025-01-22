@@ -14,6 +14,8 @@ use App\Http\Controllers\PendapatanController;
 use App\Http\Controllers\BulananController;
 use App\Http\Controllers\DiskonPromosiController;
 use App\Http\Controllers\LastokController;
+use App\Http\Controllers\RekapController;
+
 
 // Halaman Utama
 Route::get('/', function () {
@@ -133,3 +135,10 @@ Route::get('/lastok/{id}/edit', [LastokController::class, 'edit'])->name('lastok
 Route::put('/lastok/{id}', [LastokController::class, 'update'])->name('lastok.update');
 Route::delete('/lastok/{id}', [LastokController::class, 'destroy'])->name('lastok.destroy');
 
+// Rekap Barang
+Route::get('/rekap', [RekapController::class, 'index'])->name('rekap.index'); 
+Route::get('/rekap/create', [RekapController::class, 'create'])->name('rekap.create'); 
+Route::post('/rekap', [RekapController::class, 'store'])->name('rekap.store'); 
+Route::get('/rekap/{id}/edit', [RekapController::class, 'edit'])->name('rekap.edit'); 
+Route::put('/rekap/{id}', [RekapController::class, 'update'])->name('rekap.update'); 
+Route::delete('/rekap/{id}', [RekapController::class, 'destroy'])->name('rekap.destroy'); 

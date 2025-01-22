@@ -15,6 +15,7 @@ use App\Http\Controllers\PendapatanController;
 use App\Http\Controllers\BulananController;
 use App\Http\Controllers\DiskonPromosiController;
 use App\Http\Controllers\LastokController;
+use App\Http\Controllers\RekapController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -58,3 +59,7 @@ Route::apiResource('diskon_promosi', diskonpromosiController::class);
 
 // Routes untuk LaporanStok
 Route::apiResource('lastok', lastokController::class);
+
+// Routes untuk Rekap Barang
+Route::apiResource('rekap', rekapController::class);
+

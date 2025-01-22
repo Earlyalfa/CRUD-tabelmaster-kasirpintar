@@ -136,7 +136,7 @@
                 <a href="{{ route('penjualan.index') }}">Laporan Penjualan</a>
                 <a href="{{ route('diskon_promosi.index') }}">Laporan Diskon dan Promosi</a>
                 <a href="{{ route('lastok.index') }}">Laporan Stok Barang</a>
-                <a href="#">Rekapitulasi Stok Barang</a>
+                <a href="{{ route('rekap.index') }}">Rekapitulasi Stok Barang</a>
             </div>
             <a href="#" onclick="toggleSubMenu('keuanganSubmenu')">Keuangan</a>
             <div id="keuanganSubmenu" class="submenu">
