@@ -10,6 +10,8 @@ use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\KeuanganController;
 use App\Http\Controllers\PengeluaranController;
+use App\Http\Controllers\PendapatanController;
+use App\Http\Controllers\BulananController;
 
 // Halaman Utama
 Route::get('/', function () {
@@ -95,4 +97,21 @@ Route::get('/pengeluaran/{id}', [PengeluaranController::class, 'show'])->name('p
 Route::get('/pengeluaran/{id}/edit', [PengeluaranController::class, 'edit'])->name('pengeluaran.edit');
 Route::put('/pengeluaran/{id}', [PengeluaranController::class, 'update'])->name('pengeluaran.update');
 Route::delete('/pengeluaran/{id}', [PengeluaranController::class, 'destroy'])->name('pengeluaran.destroy');
+
+// Pendapatan
+Route::get('pendapatan', [PendapatanController::class, 'index'])->name('pendapatan.index'); 
+Route::get('pendapatan/create', [PendapatanController::class, 'create'])->name('pendapatan.create'); 
+Route::post('pendapatan', [PendapatanController::class, 'store'])->name('pendapatan.store'); 
+Route::get('pendapatan/{id}', [PendapatanController::class, 'show'])->name('pendapatan.show'); 
+Route::get('pendapatan/{id}/edit', [PendapatanController::class, 'edit'])->name('pendapatan.edit'); 
+Route::put('pendapatan/{id}', [PendapatanController::class, 'update'])->name('pendapatan.update'); 
+Route::delete('pendapatan/{id}', [PendapatanController::class, 'destroy'])->name('pendapatan.destroy'); 
+
+// Bulanan
+Route::get('bulanan', [BulananController::class, 'index'])->name('bulanan.index');
+Route::get('bulanan/create', [BulananController::class, 'create'])->name('bulanan.create');
+Route::post('bulanan', [BulananController::class, 'store'])->name('bulanan.store');
+Route::get('bulanan/{id}/edit', [BulananController::class, 'edit'])->name('bulanan.edit');
+Route::put('bulanan/{id}', [BulananController::class, 'update'])->name('bulanan.update');
+Route::delete('bulanan/{id}', [BulananController::class, 'destroy'])->name('bulanan.destroy');
 

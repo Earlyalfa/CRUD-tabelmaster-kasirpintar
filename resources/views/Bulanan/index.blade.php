@@ -3,37 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Pengeluaran</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <title>Rekapitulasi Keuangan Bulanan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="mb-4">Detail Pengeluaran</h1>
+        <h1 class="mb-4">Rekapitulasi Keuangan Bulanan</h1>
 
         <div class="mb-3">
-            <a href="{{ route('pengeluaran.create') }}" class="btn btn-primary">Tambah Pengeluaran</a>
+            <a href="{{ route('bulanan.create') }}" class="btn btn-primary">Tambah Bulanan</a>
             <a href="{{ route('dashboard') }}" class="btn btn-secondary">Dashboard</a>
         </div>
 
-        <!-- Tabel Pengeluaran -->
+        <!-- Tabel Bulanan -->
         <table class="table table-bordered">
             <thead class="table-primary">
                 <tr>
                     <th>No</th>
-                    <th>Jenis Pengeluaran</th>
-                    <th>Nominal</th>
+                    <th>Bulan</th>
+                    <th>Pendapatan</th>
+                    <th>Pengeluaran</th>
+                    <th>Laba Kotor</th>
+                    <th>Profit Bersih</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                @forelse ($pengeluaran as $item)
+                @forelse ($bulanan as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->jenis_pengeluaran }}</td>
-                        <td>Rp{{ number_format($item->nominal, 0, ',', '.') }}</td>
+                        <td>{{ $item->bulan }}</td>
+                        <td>Rp{{ number_format($item->pendapatan, 0, ',', '.') }}</td>
+                        <td>Rp{{ number_format($item->pengeluaran, 0, ',', '.') }}</td>
+                        <td>Rp{{ number_format($item->laba_kotor, 0, ',', '.') }}</td>
+                        <td>Rp{{ number_format($item->profit_bersih, 0, ',', '.') }}</td>
                         <td>
-                            <a href="{{ route('pengeluaran.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                            <form action="{{ route('pengeluaran.destroy', $item->id) }}" method="POST" style="display:inline;">
+                            <a href="{{ route('bulanan.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="{{ route('bulanan.destroy', $item->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
@@ -42,7 +48,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="4" class="text-center">Belum ada data pengeluaran</td>
+                        <td colspan="7" class="text-center">Belum ada data bulanan</td>
                     </tr>
                 @endforelse
             </tbody>
@@ -84,3 +90,4 @@
     </div>
 </body>
 </html>
+
