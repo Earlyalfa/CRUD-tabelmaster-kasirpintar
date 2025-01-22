@@ -12,7 +12,7 @@
     <h1 class= "mb-4">Laporan Penjualan</h1>
 
     <div class="mb-3">
-        <a href="{{ route('penjualan.create') }}" class="btn btn-primary">Tambah Penjualan</a>
+        <a href="{{ route('penjualan.create') }}" class="btn btn-primary">Tambah Laporan</a>
         <a href="{{ route('dashboard') }}" class="btn btn-secondary">Dashboard</a>
     </div>
 
