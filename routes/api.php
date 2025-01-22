@@ -13,6 +13,8 @@ use App\Http\Controllers\KeuanganController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\PendapatanController;
 use App\Http\Controllers\BulananController;
+use App\Http\Controllers\DiskonPromosiController;
+use App\Http\Controllers\LastokController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -50,3 +52,9 @@ Route::apiResource('pendapatan', pendapatanController::class);
 
 // Routes untuk Bulanan
 Route::apiResource('bulanan', bulananController::class);
+
+// Routes untuk DiskonPromosi
+Route::apiResource('diskon_promosi', diskonpromosiController::class);
+
+// Routes untuk LaporanStok
+Route::apiResource('lastok', lastokController::class);

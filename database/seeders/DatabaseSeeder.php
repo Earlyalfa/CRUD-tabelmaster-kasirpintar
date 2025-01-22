@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
             PengeluaranSeeder::class,
             PendapatanSeeder::class,
             BulananSeeder::class,
+            DiskonPromosiSeeder::class,
+            LastokSeeder::class,
         ]);
     }
 }

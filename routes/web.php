@@ -12,6 +12,8 @@ use App\Http\Controllers\KeuanganController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\PendapatanController;
 use App\Http\Controllers\BulananController;
+use App\Http\Controllers\DiskonPromosiController;
+use App\Http\Controllers\LastokController;
 
 // Halaman Utama
 Route::get('/', function () {
@@ -114,4 +116,20 @@ Route::post('bulanan', [BulananController::class, 'store'])->name('bulanan.store
 Route::get('bulanan/{id}/edit', [BulananController::class, 'edit'])->name('bulanan.edit');
 Route::put('bulanan/{id}', [BulananController::class, 'update'])->name('bulanan.update');
 Route::delete('bulanan/{id}', [BulananController::class, 'destroy'])->name('bulanan.destroy');
+
+// Diskon Promosi
+Route::get('/diskon-promosi', [DiskonPromosiController::class, 'index'])->name('diskon_promosi.index'); 
+Route::get('/diskon-promosi/create', [DiskonPromosiController::class, 'create'])->name('diskon_promosi.create'); 
+Route::post('/diskon-promosi', [DiskonPromosiController::class, 'store'])->name('diskon_promosi.store'); 
+Route::get('/diskon-promosi/{id}/edit', [DiskonPromosiController::class, 'edit'])->name('diskon_promosi.edit'); 
+Route::put('/diskon-promosi/{id}', [DiskonPromosiController::class, 'update'])->name('diskon_promosi.update'); 
+Route::delete('/diskon-promosi/{id}', [DiskonPromosiController::class, 'destroy'])->name('diskon_promosi.destroy'); 
+
+// Laporan stok routes
+Route::get('/lastok', [LastokController::class, 'index'])->name('lastok.index');
+Route::get('/lastok/create', [LastokController::class, 'create'])->name('lastok.create');
+Route::post('/lastok', [LastokController::class, 'store'])->name('lastok.store');
+Route::get('/lastok/{id}/edit', [LastokController::class, 'edit'])->name('lastok.edit');
+Route::put('/lastok/{id}', [LastokController::class, 'update'])->name('lastok.update');
+Route::delete('/lastok/{id}', [LastokController::class, 'destroy'])->name('lastok.destroy');
 

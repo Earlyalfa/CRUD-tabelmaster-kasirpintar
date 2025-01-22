@@ -134,16 +134,16 @@
             <a href="#" onclick="toggleSubMenu('laporanSubmenu')">Laporan</a>
             <div id="laporanSubmenu" class="submenu">
                 <a href="{{ route('penjualan.index') }}">Laporan Penjualan</a>
-                <a href="#">Laporan Diskon dan Promosi</a>
-                <a href="#">Laporan Stok Barang</a>
+                <a href="{{ route('diskon_promosi.index') }}">Laporan Diskon dan Promosi</a>
+                <a href="{{ route('lastok.index') }}">Laporan Stok Barang</a>
                 <a href="#">Rekapitulasi Stok Barang</a>
             </div>
             <a href="#" onclick="toggleSubMenu('keuanganSubmenu')">Keuangan</a>
             <div id="keuanganSubmenu" class="submenu">
-            <a href="{{ route('keuangan.index') }}">Laporan Keuangan</a>
-            <a href="{{ route('pendapatan.index') }}">Detail Pendapatan</a>
-            <a href="{{ route('pengeluaran.index') }}">Detail Pengeluaran</a>
-            <a href="{{ route('bulanan.index') }}">Rekapitulasi Keuangan Bulanan</a>
+                <a href="{{ route('keuangan.index') }}">Laporan Keuangan</a>
+                <a href="{{ route('pendapatan.index') }}">Detail Pendapatan</a>
+                <a href="{{ route('pengeluaran.index') }}">Detail Pengeluaran</a>
+                <a href="{{ route('bulanan.index') }}">Rekapitulasi Keuangan Bulanan</a>
             </div>
             <a href="#">Pengaturan</a>
         </ul>
