@@ -142,7 +142,7 @@
             <div id="keuanganSubmenu" class="submenu">
             <a href="{{ route('keuangan.index') }}">Laporan keuangan</a>
             <a href="#">Detail Pendapatan</a>
-            <a href="#">Detail Pengeluaran</a>
+            <a href="{{ route('pengeluaran.index') }}">Detail Pengeluaran</a>
             <a href="#">Rekapitulasi Keuangan Bulanan</a>
             </div>
             <a href="#">Pengaturan</a>

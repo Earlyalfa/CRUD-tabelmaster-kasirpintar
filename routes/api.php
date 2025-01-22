@@ -10,6 +10,8 @@ use App\Http\Controllers\DiskonController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\KeuanganController;
+use App\Http\Controllers\PengeluaranController;
+
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -38,3 +40,6 @@ Route::apiResource('penjualan', penjualanController::class);
 
 // Routes untuk Keuangan
 Route::apiResource('keuangan', keuanganController::class);
+
+// Routes untuk Pengeluaran
+Route::apiResource('pengeluaran', pengeluaranController::class);

@@ -9,6 +9,7 @@ use App\Http\Controllers\DiskonController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\KeuanganController;
+use App\Http\Controllers\PengeluaranController;
 
 // Halaman Utama
 Route::get('/', function () {
@@ -86,5 +87,12 @@ Route::get('/keuangan/{id}/edit', [KeuanganController::class, 'edit'])->name('ke
 Route::put('/keuangan/{id}', [KeuanganController::class, 'update'])->name('keuangan.update');
 Route::delete('/keuangan/{id}', [KeuanganController::class, 'destroy'])->name('keuangan.destroy');
 
-
+// Pengeluaran
+Route::get('/pengeluaran', [PengeluaranController::class, 'index'])->name('pengeluaran.index');
+Route::get('/pengeluaran/create', [PengeluaranController::class, 'create'])->name('pengeluaran.create');
+Route::post('/pengeluaran', [PengeluaranController::class, 'store'])->name('pengeluaran.store');
+Route::get('/pengeluaran/{id}', [PengeluaranController::class, 'show'])->name('pengeluaran.show');
+Route::get('/pengeluaran/{id}/edit', [PengeluaranController::class, 'edit'])->name('pengeluaran.edit');
+Route::put('/pengeluaran/{id}', [PengeluaranController::class, 'update'])->name('pengeluaran.update');
+Route::delete('/pengeluaran/{id}', [PengeluaranController::class, 'destroy'])->name('pengeluaran.destroy');
 
