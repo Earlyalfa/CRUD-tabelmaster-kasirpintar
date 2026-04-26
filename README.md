@@ -44,16 +44,16 @@ php artisan serve
 ```
 
 ## Struktur Database (Tabel)
-- **Manajemen Inventaris**:
-`produks`: Menyimpan informasi produk, kode produk, harga beli, harga jual, dan stok.
-`kategori`: Pengelompokan produk untuk memudahkan manajemen item.
-- **Operasional Kasir**:
-`ransaksis`: Mencatat detail penjualan, termasuk jumlah, sub-total, total transaksi, hingga metode dan status pembayaran.
-`diskon`: Pengelolaan promo atau potongan harga dengan tanggal mulai/berakhir dan minimal pembelian.
-- **Aktor**:
-`pegawais`: Mencatat data karyawan beserta jadwal shift (awal dan akhir).
-`supliers`: Database pemasok barang mencakup alamat, email, dan kontak.
-`users`: Autentikasi pengguna sistem.
+1. **Manajemen Inventaris**:
+- `produks`: Menyimpan informasi produk, kode produk, harga beli, harga jual, dan stok.
+- `kategori`: Pengelompokan produk untuk memudahkan manajemen item.
+2. **Operasional Kasir**:
+- `transaksis`: Mencatat detail penjualan, termasuk jumlah, sub-total, total transaksi, hingga metode dan status pembayaran.
+- `diskon`: Pengelolaan promo atau potongan harga dengan tanggal mulai/berakhir dan minimal pembelian.
+3. **Aktor**:
+- `pegawais`: Mencatat data karyawan beserta jadwal shift (awal dan akhir).
+- `supliers`: Database pemasok barang mencakup alamat, email, dan kontak.
+- `users`: Autentikasi pengguna sistem.
 
 # Fitur Aplikasi
 - **Manajemen Produk & Kategori**: CRUD lengkap untuk inventaris barang.
