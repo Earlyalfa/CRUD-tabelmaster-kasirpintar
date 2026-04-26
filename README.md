@@ -57,7 +57,7 @@ php artisan serve
 
 # Fitur Aplikasi
 - **Manajemen Produk & Kategori**: CRUD lengkap untuk inventaris barang.
-- Sistem Diskon Otomatis: Mendukung diskon berbasis status aktif dan periode waktu tertentu.
+- **Sistem Diskon Otomatis**: Mendukung diskon berbasis status aktif dan periode waktu tertentu.
 - **Manajemen SDM**: Pemantauan shift kerja pegawai.
 - **Tracking Transaksi**: Pencatatan riwayat penjualan dengan detail dan metode pembayaran.
 - **Manajemen Supplier**: Hubungan data terpusat untuk rantai pasokan.
