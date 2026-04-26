@@ -39,7 +39,7 @@
                     <td>{{ $item->stok_awal }}</td>
                     <td>{{ $item->barang_masuk }}</td>
                     <td>{{ $item->barang_terjual }}</td>
-                    <td>{{ $item->barang_rusak_hilang }}</td>
+                    <td>{{ $item->barang_rusak }}</td>
                     <td>{{ $item->stok_akhir }}</td>
                     <td>{{ $item->keterangan }}</td>
                     <td>

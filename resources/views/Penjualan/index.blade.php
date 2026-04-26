@@ -17,8 +17,8 @@
     </div>
 
     <table class="table table-bordered">
-        <thead>
-            <tr>
+            <thead class="table-primary">
+                <tr>
                 <th>No</th>
                 <th>Tanggal Waktu</th>
                 <th>No. Transaksi</th>
